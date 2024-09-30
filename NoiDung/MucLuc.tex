@@ -1,0 +1,20 @@
+\addtocontents{toc}{\protect\thispagestyle{empty}}
+\tableofcontents % tạo mục lục tự dộng 
+\thispagestyle{empty}
+\cleardoublepage
+
+
+{% Tạo danh mục hình vẽ tự động
+\let\oldnumberline\numberline%
+\renewcommand{\numberline}{\figurename~\oldnumberline}%
+\listoffigures%
+}
+\cleardoublepage
+
+
+{% Tạo danh mục bảng biểu tự động
+\let\oldnumberline\numberline%
+\renewcommand{\numberline}{\tablename~\oldnumberline}%
+\listoftables%
+}
+\cleardoublepage
