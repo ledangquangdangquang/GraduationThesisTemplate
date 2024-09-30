@@ -1,0 +1,75 @@
+% Cảm ơn Bùi Vân Anh
+% Lê Đăng Quang 30 - 9 - 2024
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc}
+\usepackage{mathptmx} % Time New Roman
+\usepackage[fontsize=13pt]{scrextend}
+\usepackage[paperheight=29.7cm, paperwidth=21cm, right=2.5cm, left=3.5cm, top=2cm, bottom=2cm]{geometry}
+% show line margin
+% \usepackage[paperheight=29.7cm, paperwidth=21cm, right=2.5cm, left=3.5cm, top=2cm, bottom=2cm, showframe,margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\renewcommand{\baselinestretch}{1.2} % Giãn dòng 1.2
+\usepackage{indentfirst} % thư viện thụt dòng 
+\setlength{\parskip}{6pt} % Spacing after
+\setlength{\parindent}{1cm} % Set thụt đầu dòng
+\usepackage{helvet}   % Font không chân (sans-serif)
+\usepackage{titlesec} % Thư viện để set up các kiểu chữ
+\usepackage{stackengine} % Gói để sử dụng gạch trên chữ
+\usepackage{tabularx} % Gói để căn vị trí cho bảng
+\usepackage{caption} % Gói để xóa dấu hai chấm
+\usepackage{amsmath} % Gói hỗ trợ xóa dấu ngoặc mặc định của phương trình (gói cho toán học)
+\usepackage{lipsum} % Gói tạo chữ linh tinh
+\usepackage[unicode]{hyperref} % Để bấm mục lục
+\usepackage{enumitem} % Để customize đề mục tự đếm
+% XỬ LÝ MỤC LỤC
+\renewcommand{\contentsname}{\centering MỤC LỤC} % Đổi tiêu đề và căn giữa
+% XỬ LÝ ĐỀ MỤC
+\setcounter{secnumdepth}{4} % Khai báo là có 4 heading
+\titlespacing*{\section}{0pt}{0pt}{30pt} % Heading 1
+\titleformat*{\section}{\fontsize{16pt}{0pt}\selectfont \bfseries}
+\titlespacing*{\subsection}{0pt}{10pt}{0pt} % Heading 2
+\titleformat*{\subsection}{\fontsize{14pt}{0pt}\selectfont \bfseries}
+\titlespacing*{\subsubsection}{0pt}{10pt}{0pt} % Heading 3
+\titleformat*{\subsubsection}{\fontsize{13pt}{0pt}\selectfont \bfseries \itshape}
+\titlespacing*{\paragraph}{0pt}{10pt}{0pt} % Heading 4
+\titleformat*{\paragraph}{\fontsize{13pt}{0pt}\selectfont \itshape}
+% XỶ LÝ HÌNH VẼ 
+\renewcommand{\listfigurename}{\centering DANH MỤC HÌNH VẼ} % Đổi tiêu đề và căn giữa
+\renewcommand{\figurename}{\textit{\fontsize{12pt}{0}\selectfont Hình}} % Đổi tiêu đề và căn giữa
+\renewcommand{\thefigure}{\textit{\fontsize{12pt}{0}\selectfont \thesection.\arabic{figure}}} 
+\captionsetup[figure]{labelsep = space}
+% XỬ LÝ BẢNG BIỂU
+\renewcommand{\listtablename}{\centering DANH MỤC BẢNG BIỂU} % Đổi tiêu đề và căn giữa
+\renewcommand{\tablename}{\textit{\fontsize{12pt}{0}\selectfont Bảng}} % Đổi tiêu đề và căn giữa
+\renewcommand{\thetable}{\textit{\fontsize{12pt}{0}\selectfont \thesection.\arabic{table}}} 
+\captionsetup[table]{labelsep = space}
+\newcolumntype{s}{>{\centering\arraybackslash\hsize=.7\hsize}X}
+\newcolumntype{a}{>{\centering\arraybackslash\hsize=1.3\hsize}X}
+% XỬ LÝ PHƯƠNG TRÌNH
+\makeatletter
+\renewcommand{\theequation}{\textit{\fontsize{12pt}{0}\selectfont PT \thesection.\arabic{equation}}} % thay đổi đánh số phương trình mặc định 
+\def\tagform@#1{\maketag@@@{\textnormal{#1}}} % Xóa dấu ngoặc quanh số phương trình
+\makeatother
+% XỬ LÝ ĐỊNH NGHĨA, ĐỊNH LÝ, BỔ ĐỀ
+\newtheorem{theorem}{Định lý}[section]
+\newtheorem{defn}[theorem]{Định nghĩa}
+\newtheorem{corollary}[theorem]{Hệ quả}
+\newtheorem{lemma}[theorem]{Bổ đề}
+% XỬ LÝ TÀI LIỆU THAM KHẢO
+\renewcommand{\refname}{\centering TÀI LIỆU THAM KHẢO}
+
+\begin{document}
+    % INPUT NỘI DUNG 
+    \input{NoiDung/Bia} 
+    \input{NoiDung/NhiemVuDoAnTotNghiep} 
+    \input{NoiDung/CamOnvaTomTat} 
+    \input{NoiDung/MucLuc} 
+    \input{NoiDung/NoiDungCacChuong} 
+    \input{NoiDung/KetLuan} 
+    \input{NoiDung/TaiLieuThamKhao} 
+    \input{NoiDung/PhuLuc} 
+\end{document}
