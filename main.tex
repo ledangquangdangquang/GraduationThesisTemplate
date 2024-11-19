@@ -4,15 +4,18 @@
 % Ctrl + Click: SyncTeX from read view
 \documentclass{article}
 \usepackage[utf8]{inputenc}
-\usepackage[T5]{fontenc}
+\usepackage[T5]{fontenc}% Để sử dụng Tiếng Việt
 \usepackage{mathptmx} % Time New Roman
 \usepackage[fontsize=13pt]{scrextend}
 \usepackage[paperheight=29.7cm, paperwidth=21cm, right=2.5cm, left=3.5cm, top=2cm, bottom=2cm]{geometry}
-% show line margin
+% show line margin (Comment dòng trên lại để không bị trùng)
 % \usepackage[paperheight=29.7cm, paperwidth=21cm, right=2.5cm, left=3.5cm, top=2cm, bottom=2cm, showframe,margin=1in]{geometry}
-\usepackage{graphicx}
-\usepackage{float}
-\usepackage{tikz}
+\usepackage{graphicx} % Thư viện chèn ảnh
+\usepackage{float}% Set vị trí chèn ảnh
+% XỬ LÝ ẢNH VECTOR
+\usepackage{tikz} % add ảnh .svg thôi, tạo khung viền 
+\usepackage{circuitikz} % vẽ mạch điện 
+\usepackage{siunitx} % Để viết giá trị
 \usetikzlibrary{calc}
 \renewcommand{\baselinestretch}{1.2} % Giãn dòng 1.2
 \usepackage{indentfirst} % thư viện thụt dòng 
@@ -27,7 +30,6 @@
 \usepackage{lipsum} % Gói tạo chữ linh tinh
 \usepackage[unicode]{hyperref} % Để bấm mục lục
 \usepackage{enumitem} % Để customize đề mục tự đếm
-% \usepackage{svg}
 % XỬ LÝ MỤC LỤC
 \renewcommand{\contentsname}{\centering MỤC LỤC} % Đổi tiêu đề và căn giữa
 % XỬ LÝ ĐỀ MỤC
