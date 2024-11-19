@@ -1,20 +1,35 @@
+% MỤC LỤC
 \addtocontents{toc}{\protect\thispagestyle{empty}}
 \tableofcontents % tạo mục lục tự dộng 
 \thispagestyle{empty}
 \cleardoublepage
 
-
-{% Tạo danh mục hình vẽ tự động
-\let\oldnumberline\numberline%
-\renewcommand{\numberline}{\figurename~\oldnumberline}%
-\listoffigures%
-}
+% DANH MỤC KÝ HIỆU VÀ CHỮ VIẾT TẮT
+\pagenumbering{roman} % Đánh số thứ tự la mã
+\section*{\centering DANH MỤC KÝ HIỆU VÀ CHỮ VIẾT TẮT}
+\phantomsection \addcontentsline{toc}{section}{\numberline {} DANH MỤC KÝ HIỆU VÀ CHỮ VIẾT TẮT}
+\begin{tabular}{ l l }
+\hspace{1cm} AWGN & \hspace{4cm} Additive White Gaussian Noise \\  
+\hspace{1cm} BC & \hspace{4cm} Broadcast Channel    \\
+\hspace{1cm} BS  & \hspace{4cm} Base Station\\
+\hspace{1cm} CSI & \hspace{4cm} Channel State Information \\  
+\end{tabular}  
 \cleardoublepage
 
-
-{% Tạo danh mục bảng biểu tự động
-\let\oldnumberline\numberline%
-\renewcommand{\numberline}{\tablename~\oldnumberline}%
-\listoftables%
+% DANH MỤC HÌNH VẼ
+{
+    \let\oldnumberline\numberline%
+    \renewcommand{\numberline}{\figurename~\oldnumberline}%
+    \listoffigures%
 }
+\phantomsection\addcontentsline{toc}{section}{\numberline {} DANH MỤC HÌNH VẼ}
+\cleardoublepage
+
+% DANH MỤC BẢNG BIỂU
+{
+    \let\oldnumberline\numberline%
+    \renewcommand{\numberline}{\tablename~\oldnumberline}%
+    \listoftables%
+}
+\phantomsection\addcontentsline{toc}{section}{\numberline {} DANH MỤC BẢNG BIỂU}
 \cleardoublepage
