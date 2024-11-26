@@ -1,0 +1,62 @@
+\phantomsection\section*{\centering CHƯƠNG 4. THÍ NGHIỆM VÀ KẾT QUẢ}
+\addcontentsline{toc}{section}{\numberline{} CHƯƠNG 4. THÍ NGHIỆM VÀ KẾT QUẢ}
+\setcounter{section}{4}
+\setcounter{subsection}{0}
+\setcounter{figure}{0}
+\setcounter{table}{0}
+\subsection{Sao nó không đúng?}
+\lipsum
+\begin{figure}[h]
+    \centering
+	\begin{circuitikz}[american, scale=0.55, transform shape]
+		\node[ground] at (-61.71, -4) {};
+		\draw (-68.57, 6.17) to[european resistor, l2^= $R_1$ and \SI{56}{k\ohm}] (-68.57, 3.32);
+		\draw (-68.57, -1.14) to[european resistor, l2^=$R_2$and \SI{10}{k\ohm}] (-68.57, -4);
+		\draw (-65.14, 6.17) to[european resistor, l2^=$R_C$and \SI{4.7}{k\ohm}] (-65.14, 3.32);
+		\draw (-65.14, -1.71) to[european resistor, l2^=$R_{E_2}$and \SI{560}{k\ohm}] (-65.14, -3.43);
+		\draw (-57.71, -1.43) to[european resistor, l2^=$R_4$and \SI{22}{k\ohm}] (-57.71, -3.71);
+		\draw (-52.57, -1.43) to[european resistor, l2^=$R_{E3}$ and \SI{33}{\ohm}] (-52.57, -3.71);
+		\draw (-48.57, -1.43) to[loudspeaker, l2^=$Speaker$ and \SI{8}{\ohm}] (-48.57, -3.71);
+		\node[npn] at (-65.14, 2.75) {$Q_1$};
+		\node[npn] at (-53.71, 3.52) {$Q_2$};
+		\node[npn] at (-52.57, 1.23) {$Q_3$};
+		\draw (-61.71, -1.43) to[curved capacitor, l2^=$C_2$and \SI{100}{\mu\farad}] (-61.71, -3.14);
+		\draw (-52.57, -0.29) to[curved capacitor, l2^=$C_4$and \SI{100}{\mu\farad}] (-48.57, -0.29);
+		\draw (-68.57, 3.32) -- (-68.57, 1.6);
+		\draw (-53.71, 2.75) |- (-53.41, 1.23);
+		\draw (-53.71, 6.17) -- (-53.71, 4.29);
+		\draw (-61.71, -4.11) -- (-61.71, -3.54);
+		\draw (-57.71, 6.17) to[european resistor, l2^=$R_3$ and \SI{5.6}{k\ohm}] (-57.71, 3.32);
+		\draw (-57.71, 3.32) -- (-57.71, 1.6);
+		\draw (-71.71, 0.29) to[sinusoidal voltage source, l2^=$V_s$ and \SI{100}{m\volt}\\ \SI{1}{k\hertz}] (-71.71, 2);
+		\node[ground] at (-71.71, 0.29) {};
+		\draw (-69.14, 2.75) to[curved capacitor, l2^=$C_1$ and \SI{1}{\mu F}] (-70.86, 2.75);
+		\draw (-69.14, 2.75) -- (-65.98, 2.75);
+		\draw (-64.57, 6.17) -- (-52.57, 6.17) -- (-52.57, 2);
+		\draw (-65.14, 1.98) to[european resistor, l2^=$R_{E_1}$and \SI{68}{k\ohm}] (-65.14, -0.57);
+		\draw (-68.57, 6.17) -- (-66.29, 6.17);
+		\draw (-66.29, 6.17) -- (-64.57, 6.17);
+		\draw (-60.51, 3.52) to[capacitor, l2^=$C_3$and \SI{0.22}{\mu\farad}] (-62.03, 3.52);
+		\draw (-62.03, 3.52) |- (-65.14, 3.52);
+		\draw (-60.51, 3.52) |- (-54.55, 3.52);
+		\node[vcc] at (-61.43, 7.32) {$V_{CC} = 12V$};
+		\draw (-61.43, 7.32) -- (-61.43, 6.17);
+		\draw (-52.57, 0.46) |- (-52.57, -1.43);
+		\draw (-48.57, -0.29) -- (-48.57, -1.43);
+		\draw (-65.14, -1.71) -- (-65.14, -0.57);
+		\draw (-61.71, -1.43) -- (-61.71, -1.14) -- (-65.14, -1.14);
+		\draw (-61.71, -3.14) -- (-61.71, -4);
+		\draw (-68.57, -1.14) |- (-68.57, 3.32);
+		\draw (-68.57, -4) -| (-48.57, -3.71);
+		\draw (-65.14, -3.43) -- (-65.14, -4);
+		\draw (-57.71, -3.71) -- (-57.71, -4);
+		\draw (-52.57, -3.71) -- (-52.57, -4);
+		\draw (-57.71, -1.43) -- (-57.71, 1.71);
+		\draw (-70.86, 2.75) -| (-71.71, 2);
+	\end{circuitikz} 
+    \caption[Mạch của đề bài]{\textit{\fontsize{12pt}{0}\selectfont Mạch của đề bài}}
+    \label{hinh4.1}
+\end{figure}
+
+Hình \ref{hinh4.1} đây là ví dụ về cách mạch điện. Và cách chèn tài liệu tham khảo \cite{bracewell1989fourier}
+\cleardoublepage
