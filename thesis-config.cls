@@ -81,8 +81,8 @@
         \vspace{2em}
         \textbf{\fontsize{11pt}{0pt}\selectfont \@author\\}
         \vspace{1ex}
-        \fontsize{14pt}{0pt}\selectfont \@authoremail\\
-
+        % \fontsize{14pt}{0pt}\selectfont \href{mailto:email.ten@sis.hust.edu.vn}{\@authoremail}}\\
+        {\fontsize{14pt}{0pt}\selectfont \href{mailto:\@authoremail}{\@authoremail}}\\
         \vspace{1em}
         \textbf{\fontsize{14pt}{0pt}\selectfont \@specialization\\}
         \vspace{1ex}
