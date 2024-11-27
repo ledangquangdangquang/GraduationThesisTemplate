@@ -15,7 +15,7 @@ Chỉ cần lưu là tự động dịch lại
 ```bash
 latexmk -pdf filename.tex
 ```
-## Tính năng
+## Tính năng (python complier required)
 ### Tự động thêm chương mới
 ```bash
 .\AutoGenNextChapter.bat
