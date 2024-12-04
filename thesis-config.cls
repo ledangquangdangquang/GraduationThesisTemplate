@@ -24,6 +24,7 @@
 \RequirePackage{lipsum} % Gói tạo chữ linh tinh
 \RequirePackage[unicode]{hyperref} % Để bấm mục lục
 \RequirePackage{enumitem} % Để customize đề mục tự đếm
+\RequirePackage{datetime} % Để bóc tách ngày tháng
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Thiết lập mặc định cho package
