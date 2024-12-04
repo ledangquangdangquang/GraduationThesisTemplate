@@ -1,6 +1,13 @@
 *.bbl
 *.synctex.gz
-runGit.bat 
-runGit.bat 
-runGit.bat 
+*.aux
+*.blg
+*.fdb_latexmk
+*.fls
+*.lof
+*.log
+*.lot
+*.out
+*.toc
+
 runGit.bat 
