@@ -21,5 +21,5 @@ latexmk -pdf filename.tex
 .\AutoGenNextChapter.bat
 ```
 ---
-### 4. Before drafting
+## 4. Before drafting
 - You can edit your author, school and location... in **main.tex** (because you can't `ctrl + click` to find it)
