@@ -22,4 +22,4 @@ latexmk -pdf filename.tex
 ```
 ---
 ### 4. Before drafting
-- You can edit your author, school and location... in **main.tex** (because you can't `ctrl + click` to find the find it)
+- You can edit your author, school and location... in **main.tex** (because you can't `ctrl + click` to find it)
