@@ -11,7 +11,7 @@
 latexmk -pdf filename.tex
 ```
 ---
-### 2.  Overleaf 
+### 2.  Overleaf (strongly recommend)
 - Download zip file and upload on overleaf.
 
 ---
