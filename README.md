@@ -20,3 +20,6 @@ latexmk -pdf filename.tex
 ```bash
 .\AutoGenNextChapter.bat
 ```
+---
+### 4. Before drafting
+- You can edit your author, school and location... in **main.tex** (because can't ctrl click to find the fix it)
