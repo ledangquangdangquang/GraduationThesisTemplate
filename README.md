@@ -1,5 +1,5 @@
 # Mẫu đồ án tốt nghiệp HUST
-> DEMO: `main.pdf`
+> **DEMO**: `main.pdf`
 ## 1. VScode 
 - Install Latex workshop extension in VS code.
 - Install MiKTeX.
