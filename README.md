@@ -1,5 +1,5 @@
 # Mẫu đồ án tốt nghiệp HUST
-> **DEMO**: `main.pdf`
+
 ## 1. VScode 
 - Install Latex workshop extension in VS code.
 - Install MiKTeX.
@@ -11,7 +11,7 @@
 latexmk -pdf filename.tex
 ```
 ---
-### 2.  Overleaf (strongly recommend)
+### 2.  Overleaf 
 - Download zip file and upload on overleaf.
 
 ---
@@ -20,6 +20,3 @@ latexmk -pdf filename.tex
 ```bash
 .\AutoGenNextChapter.bat
 ```
----
-## 4. Before drafting
-- You can edit your author, school and location... in **main.tex** (because you can't `ctrl + click` to find it)
