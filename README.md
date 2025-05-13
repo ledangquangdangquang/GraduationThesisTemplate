@@ -2,8 +2,8 @@
 
 ## 1. VScode 
 - Install Latex workshop extension in VS code.
-- Install MiKTeX.
-- Install Strawberry Perl.
+- Install [MiKTeX](https://miktex.org/).
+- Install [Strawberry Perl](https://strawberryperl.com/).
 - Then install **latexmk** in MiKTeX console (remember update before).
 ### Usage
 - Terminal
