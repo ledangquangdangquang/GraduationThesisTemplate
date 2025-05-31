@@ -29,7 +29,7 @@ GraduationThesisTemplate/
 
 * [Visual Studio Code](https://code.visualstudio.com/) với tiện ích **LaTeX Workshop**
 * [MiKTeX](https://miktex.org/)
-* [Strawberry Perl](https://strawberryperl.com/)([GitHub][1])
+* [Strawberry Perl](https://strawberryperl.com/)
 
 **Các bước thực hiện:**
 
