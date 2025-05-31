@@ -1,4 +1,4 @@
-# 🎓 Mẫu Luận Văn Tốt Nghiệp HUST
+# 🎓 Mẫu Đồ Án Tốt Nghiệp HUST
 
 Đây là mẫu luận văn tốt nghiệp được thiết kế dành cho sinh viên Đại học Bách Khoa Hà Nội (HUST), hỗ trợ biên soạn tài liệu bằng LaTeX với cấu trúc rõ ràng và khả năng tự động hóa cao.
 
