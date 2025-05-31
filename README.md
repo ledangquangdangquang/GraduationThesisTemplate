@@ -64,5 +64,5 @@ GraduationThesisTemplate/
 
 ## 📬 Liên Hệ
 
-* Để biết thêm thông tin hoặc góp ý, vui lòng liên hệ qua [GitHub Issues](https://github.com/Quanghusst/GraduationThesisTemplate/issues).
+* Để góp ý, vui lòng liên hệ qua [GitHub Issues](https://github.com/Quanghusst/GraduationThesisTemplate/issues).
 
