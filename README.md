@@ -9,13 +9,11 @@ GraduationThesisTemplate/
 ├── MoDau/                  # Chương Mở đầu
 ├── NoiDung/                # Các chương nội dung chính
 ├── KetThuc/                # Chương Kết luận và phụ lục
-├── image/                  # Thư mục chứa hình ảnh minh họa
+├── Images/                 # Thư mục chứa hình ảnh minh họa
 ├── main.tex                # Tệp LaTeX chính để biên dịch
-├── main.py                 # Script Python hỗ trợ tự động hóa
-├── AutoGenNextChapter.bat  # Script batch tạo chương mới tự động
+├── AutoGenNextChapter.py   # Script Python hỗ trợ tự động hóa
 ├── thesis-config.cls       # Tệp định dạng lớp LaTeX tùy chỉnh
 ├── main.pdf                # Tệp PDF mẫu đã biên dịch
-├── GraduationThesisSample.zip # Gói mẫu hoàn chỉnh để sử dụng trên Overleaf
 └── README.md               # Tệp hướng dẫn sử dụng
 ```
 
@@ -44,13 +42,13 @@ GraduationThesisTemplate/
 
 ### 2. Sử Dụng Trên Overleaf
 
-1. Tải tệp `GraduationThesisSample.zip` từ repository.
+1. Tải tệp `GraduationThesisSample.zip` từ release.
 2. Đăng nhập vào [Overleaf](https://www.overleaf.com/) và tạo một dự án mới.
 3. Tải lên toàn bộ nội dung của tệp ZIP vào dự án Overleaf.
 
 ### 3. Tự Động Tạo Chương Mới
 
-* Sử dụng script `AutoGenNextChapter.bat` hoặc `main.py` để tự động tạo tệp chương mới với cấu trúc chuẩn.
+* Sử dụng `python AutoGenNextChapter.py` để tự động tạo tệp chương mới với cấu trúc chuẩn.
 * Script sẽ cập nhật `main.tex` để bao gồm chương mới một cách tự động, giúp duy trì cấu trúc tài liệu nhất quán.
 
 ## 🧩 Tùy Biến và Mở Rộng
@@ -65,4 +63,3 @@ GraduationThesisTemplate/
 ## 📬 Liên Hệ
 
 * Để góp ý, vui lòng liên hệ qua [GitHub Issues](https://github.com/Quanghusst/GraduationThesisTemplate/issues).
-
