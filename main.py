@@ -26,17 +26,18 @@ for file in existing_files:
 next_chapter = max(existing_chapters) + 1 if existing_chapters else 1
 
 # Tạo nội dung LaTeX cho chương tiếp theo
-latex_content = f"""
-\\phantomsection
-\\section*{{\\centering CHƯƠNG {next_chapter}. CHỦ ĐỀ CỦA CHƯƠNG {next_chapter}}}
-\\addcontentsline{{toc}}{{section}}{{\\numberline{{}}CHƯƠNG {next_chapter}. CHỦ ĐỀ CỦA CHƯƠNG {next_chapter}}}
+chapter_title = f"CHỦ ĐỀ CỦA CHƯƠNG {next_chapter}"
+
+latex_content = f"""\\chaptercustom{{{next_chapter}}}{{{chapter_title}}}
 \\setcounter{{section}}{{{next_chapter}}}
 \\setcounter{{subsection}}{{0}}
 \\setcounter{{figure}}{{0}}
 \\setcounter{{table}}{{0}}
-\
+
+
 \\cleardoublepage
 """
+
 
 # Tạo tên file mới trong thư mục NoiDung
 new_file = f'{directory}Chuong{next_chapter}.tex'
