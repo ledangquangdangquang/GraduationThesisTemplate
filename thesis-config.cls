@@ -1,5 +1,4 @@
-\NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{thesis-config}[2024/11/26 Custom LaTeX Class]
+\NeedsTeXFormat{LaTeX2e}\ProvidesClass{thesis-config}[2024/11/26 Custom LaTeX Class]
 \LoadClass{article} % Kế thừa lớp "article"
 %--- LOAD PACKAGE ---
 \RequirePackage[utf8]{inputenc} % UTF-8 cho input
@@ -70,7 +69,7 @@
         \vspace{1em}
         \textbf{\fontsize{14pt}{0pt}\selectfont \@specialization\\}
         \vspace{1ex}
-        \textbf{\fontsize{14pt}{0pt}\selectfont Chuyên ngành \@major \\}
+        \textbf{\fontsize{14pt}{0pt}\selectfont \@major \\}
         \vspace{5em}
         \begin{tabular}{  l  l  r }
             \textbf{Giảng viên hướng dẫn:}&\@advisor& \fontsize{10pt}{0pt}\selectfont \stackon{Chữ ký của GVHD}{\rule{4cm}{0.4pt}} \\ [3em] 
@@ -78,11 +77,11 @@
             \textbf{Trường:}&\multicolumn{2}{l}{\@school}\\
         \end{tabular}
         \vfill
-        \textbf{\MakeUppercase\@universitycity, \@degreemonth/ \@degreeyear}
+        \textbf{\MakeUppercase\@universitycity \ \ \@degreemonth/\@degreeyear}
     \end{center}
     \cleardoublepage
 }
-\newcommand{\taotTieuDe}{ % Dành cho báo cáo nhóm, báo cáo môn học
+\newcommand{\groupTitle}{ % Dành cho báo cáo nhóm, báo cáo môn học
     \thispagestyle{empty} 
     \begin{center} 
         \textbf{\fontsize{15pt}{0pt}\selectfont \MakeUppercase\@university\\}
@@ -116,6 +115,14 @@
         \textbf{\MakeUppercase\@universitycity, \@degreemonth/\@degreeyear}
     \end{center}
     \cleardoublepage
+}
+\newcommand{\chaptercustom}[2]{ % Setup chương tự động
+    \phantomsection
+    \section*{\centering CHƯƠNG #1. #2}
+    \addcontentsline{toc}{section}{\numberline{}CHƯƠNG #1. #2}
+    \setcounter{subsection}{0}
+    \setcounter{figure}{0}
+    \setcounter{table}{0}
 }
 %--- XỬ LÝ CON CHỮ ---
 \renewcommand{\baselinestretch}{1.2} % Giãn dòng 1.2
