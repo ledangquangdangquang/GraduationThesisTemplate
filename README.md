@@ -48,7 +48,7 @@ GraduationThesisTemplate/
 
 ### 3. Tự Động Tạo Chương Mới
 
-* Sử dụng `python AutoGenNextChapter.py` để tự động tạo tệp chương mới với cấu trúc chuẩn.
+* Sử dụng `AutoGenNextChapter.exe` để tự động tạo tệp chương mới với cấu trúc chuẩn.
 * Script sẽ cập nhật `main.tex` để bao gồm chương mới một cách tự động, giúp duy trì cấu trúc tài liệu nhất quán.
 
 ## 🧩 Tùy Biến và Mở Rộng
