@@ -1,49 +1,50 @@
 \NeedsTeXFormat{LaTeX2e}\ProvidesClass{thesis-config}[2024/11/26 Custom LaTeX Class]
-\LoadClass{article} % Kế thừa lớp "article"
-%--- LOAD PACKAGE ---
-\RequirePackage[utf8]{inputenc} % UTF-8 cho input
-\RequirePackage[T5]{fontenc}    % Mã hóa phông chữ cho Tiếng Việt
-\RequirePackage{mathptmx} % Time New Roman
+\LoadClass{article}                     % Kế thừa lớp "article"
+%----- LOAD PACKAGE -----
+\RequirePackage[utf8]{inputenc}         % UTF-8 cho input
+\RequirePackage[T5]{fontenc}            % Mã hóa phông chữ cho Tiếng Việt
+\RequirePackage{mathptmx}               % Time New Roman
 \RequirePackage{scrextend}
 \RequirePackage{geometry}
-\RequirePackage{graphicx} % Thư viện chèn ảnh
-\RequirePackage{float}% Set vị trí chèn ảnh
-\RequirePackage{tikz} % add ảnh .svg thôi, tạo khung viền 
-\RequirePackage{circuitikz} % vẽ mạch điện 
-\RequirePackage{siunitx} % Để viết giá trị
-\RequirePackage{indentfirst} % thư viện thụt dòng 
-\RequirePackage{helvet}   % Font không chân (sans-serif)
-\RequirePackage{titlesec} % Thư viện để set up các kiểu chữ
-\RequirePackage{stackengine} % Gói để sử dụng gạch trên chữ
-\RequirePackage{tabularx} % Gói để căn vị trí cho bảng
-\RequirePackage{caption} % Gói để xóa dấu hai chấm
-\RequirePackage{amsmath} % Gói hỗ trợ xóa dấu ngoặc mặc định của phương trình (gói cho toán học)
-\RequirePackage{lipsum} % Gói tạo chữ linh tinh
-\RequirePackage[unicode]{hyperref} % Để bấm mục lục
-\RequirePackage{enumitem} % Để customize đề mục tự đếm
-\RequirePackage{datetime} % Để bóc tách ngày tháng
-%--- CONFIG PACKAGE ---
-\KOMAoptions{fontsize=13pt} % Đúng cách để đặt kích thước chữ với scrextend
+\RequirePackage{graphicx}               % Thư viện chèn ảnh
+\RequirePackage{float}                  % Set vị trí chèn ảnh
+\RequirePackage{tikz}                   % add ảnh .svg thôi, tạo khung viền 
+\RequirePackage{circuitikz}             % vẽ mạch điện 
+\RequirePackage{siunitx}                % Để viết giá trị
+\RequirePackage{indentfirst}            % thư viện thụt dòng 
+\RequirePackage{helvet}                 % Font không chân (sans-serif)
+\RequirePackage{titlesec}               % Thư viện để set up các kiểu chữ
+\RequirePackage{stackengine}            % Gói để sử dụng gạch trên chữ
+\RequirePackage{tabularx}               % Gói để căn vị trí cho bảng
+\RequirePackage{caption}                % Gói để xóa dấu hai chấm
+\RequirePackage{amsmath}                % Gói hỗ trợ xóa dấu ngoặc mặc định của phương trình (gói cho toán học)
+\RequirePackage{lipsum}                 % Gói tạo chữ linh tinh
+\RequirePackage[unicode]{hyperref}      % Để bấm mục lục
+\RequirePackage{enumitem}               % Để customize đề mục tự đếm
+\RequirePackage{datetime}               % Để bóc tách ngày tháng
+%----- CONFIG PACKAGE -----
+\KOMAoptions{fontsize=13pt}             % Đúng cách để đặt kích thước chữ với scrextend
+\setlist[itemize]{leftmargin=4em, labelsep=0.5em} % 4em = 2tab
 \geometry{paperheight=29.7cm, paperwidth=21cm, right=2.5cm, left=3.5cm, top=2cm, bottom=2cm}
-% \geometry{showframe} % Show margin
+% \geometry{showframe}                  % Show margin
 \AtBeginDocument{\usetikzlibrary{calc}} % Nạp thư viện calc của TikZ
-%--- DEFINITIONS ---
+%----- DEFINITIONS -----
 \newtheorem{theorem}{Định lý}[section]
 \newtheorem{defn}[theorem]{Định nghĩa}
 \newtheorem{corollary}[theorem]{Hệ quả}
 \newtheorem{lemma}[theorem]{Bổ đề}
-\def\degreeyear#1{\gdef\@degreeyear{#1}}  % Định nghĩa năm tốt nghiệp
-\def\degreemonth#1{\gdef\@degreemonth{#1}} % Định nghĩa tháng tốt nghiệp
-\def\degree#1{\gdef\@degree{#1}} % Định nghĩa tên đồ án (ĐỒ ÁN TỐT NGHIỆP)
-\def\advisor#1{\gdef\@advisor{#1}} % Định nghĩa GVHD
-\def\department#1{\gdef\@department{#1}} % Định nghĩa bộ môn
-\def\school#1{\gdef\@school{#1}} % Định nghĩa trường (Điện - Điện tử)
-\def\university#1{\gdef\@university{#1}} % Định nghĩa Đại học
-\def\universitycity#1{\gdef\@universitycity{#1}} % Định nghĩa Nơi học đại học
-\def\authoremail#1{\gdef\@authoremail{#1}} % Định nghĩa email
-\def\specialization#1{\gdef\@specialization{#1}} % Định nghĩa ngành học
-\def\major#1{\gdef\@major{#1}} % Định nghĩa chuyên ngành
-%--- REDEFINITIONS ---
+\def\degreeyear#1{\gdef\@degreeyear{#1}}            % Định nghĩa năm tốt nghiệp
+\def\degreemonth#1{\gdef\@degreemonth{#1}}          % Định nghĩa tháng tốt nghiệp
+\def\degree#1{\gdef\@degree{#1}}                    % Định nghĩa tên đồ án 
+\def\advisor#1{\gdef\@advisor{#1}}                  % Định nghĩa GVHD
+\def\department#1{\gdef\@department{#1}}            % Định nghĩa bộ môn
+\def\school#1{\gdef\@school{#1}}                    % Định nghĩa trường 
+\def\university#1{\gdef\@university{#1}}            % Định nghĩa Đại học
+\def\universitycity#1{\gdef\@universitycity{#1}}    % Định nghĩa Nơi học đại học
+\def\authoremail#1{\gdef\@authoremail{#1}}          % Định nghĩa email
+\def\specialization#1{\gdef\@specialization{#1}}    % Định nghĩa ngành học
+\def\major#1{\gdef\@major{#1}}                      % Định nghĩa chuyên ngành
+%----- BÌA -----
 \renewcommand{\maketitle}{ % Define lại maketitle  (XỬ LÝ BÌA)
     \thispagestyle{empty} % Bỏ dấu trang
     \begin{center} 
@@ -81,6 +82,7 @@
     \end{center}
     \cleardoublepage
 }
+%---- BÌA CHO NHÓM -----
 \newcommand{\groupTitle}{ % Dành cho báo cáo nhóm, báo cáo môn học
     \thispagestyle{empty} 
     \begin{center} 
@@ -116,6 +118,7 @@
     \end{center}
     \cleardoublepage
 }
+%----- XỬ LÝ ĐẦU CHƯƠNG -----
 \newcommand{\chaptercustom}[2]{ % Setup chương tự động
     \phantomsection
     \section*{\centering CHƯƠNG #1. #2}
