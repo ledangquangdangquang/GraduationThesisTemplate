@@ -1,6 +1,6 @@
 <h1 align = "center">Mẫu Đồ Án Tốt Nghiệp HUST</h1>
 <p align="center">
-  <img src="Images/Logo_Hust.png" alt="Demo" width="107"/>
+  <img src="Images/Logo_Hust.png" alt="Logo Hust" width="107"/>
 </p>
 
 Đây là mẫu luận văn tốt nghiệp được thiết kế dành cho sinh viên Đại học Bách Khoa Hà Nội (HUST). Mẫu sử dụng LaTeX để đảm bảo tài liệu được trình bày chuyên nghiệp, đồng thời cung cấp các công cụ tự động hóa giúp quá trình biên soạn trở nên dễ dàng và hiệu quả hơn.
