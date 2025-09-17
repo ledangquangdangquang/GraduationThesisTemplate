@@ -127,6 +127,15 @@
     \setcounter{figure}{0}
     \setcounter{table}{0}
 }
+% --- XỬ LÝ HÌNH ẢNH --- 
+\newcommand{\figurecustom}[3]{% Setup hình ảnh
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=#1\textwidth]{#2}
+        \caption[#3]{\textit{\fontsize{12pt}{0}\selectfont #3}}
+        \label{#2}
+    \end{figure}
+}
 %--- XỬ LÝ CON CHỮ ---
 \renewcommand{\baselinestretch}{1.2} % Giãn dòng 1.2
 \setlength{\parskip}{6pt} % Spacing after
