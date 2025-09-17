@@ -1,4 +1,7 @@
 # Mẫu Đồ Án Tốt Nghiệp HUST
+<p align="center">
+  <img src="Images/Logo_Hust.png" alt="Demo" width="70"/>
+</p>
 
 Đây là mẫu luận văn tốt nghiệp được thiết kế dành cho sinh viên Đại học Bách Khoa Hà Nội (HUST). Mẫu sử dụng LaTeX để đảm bảo tài liệu được trình bày chuyên nghiệp, đồng thời cung cấp các công cụ tự động hóa giúp quá trình biên soạn trở nên dễ dàng và hiệu quả hơn.
 
@@ -117,4 +120,4 @@ Tệp `main.pdf` là phiên bản mẫu đã được biên dịch, cung cấp c
 
 ## Liên Hệ
 
-Nếu có bất kỳ câu hỏi hoặc góp ý nào, vui lòng tạo một [Issue](https://github.com/Quanghusst/GraduationThesisTemplate/issues) trên
+Nếu có bất kỳ câu hỏi hoặc góp ý nào, vui lòng tạo một [Issue](https://github.com/Quanghusst/GraduationThesisTemplate/issues).
