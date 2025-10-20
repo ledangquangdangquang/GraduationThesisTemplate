@@ -22,7 +22,7 @@ GraduationThesisTemplate/
 ├── KetThuc/                # Chương Kết luận và phụ lục
 ├── Images/                 # Thư mục chứa hình ảnh minh họa
 ├── main.tex                # Tệp LaTeX chính để biên dịch
-├── AutoGenNextChapter.py   # Script Python tự động tạo chương mới
+├── AutoGenNextChapter.exe  # Script tự động tạo chương mới
 ├── thesis-config.cls       # Tệp định dạng và chứa các lệnh tùy chỉnh
 ├── main.pdf                # Tệp PDF mẫu đã biên dịch
 └── README.md               # Tệp hướng dẫn sử dụng
@@ -92,6 +92,8 @@ File `thesis-config.cls` đã định nghĩa sẵn một số lệnh để giúp
     ```latex
     \figurecustom{<tỷ lệ rộng>}{<đường dẫn file>}{<chú thích>}
     % Ví dụ: \figurecustom{0.8}{Images/Logo_Hust.png}{Logo Đại học Bách Khoa Hà Nội}
+    % Tham chiếu hình ảnh 
+    % \ref{Images/Logo_Hust.png}
     ```
     Trong đó, `tỷ lệ rộng` là số từ 0 đến 1, tương ứng với chiều rộng của ảnh so với chiều rộng của trang.
 

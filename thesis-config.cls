@@ -4,6 +4,8 @@
 \RequirePackage[utf8]{inputenc}         % UTF-8 cho input
 \RequirePackage[T5]{fontenc}            % Mã hóa phông chữ cho Tiếng Việt
 \RequirePackage{mathptmx}               % Time New Roman
+\RequirePackage{listings}               % Thư viện chèn code
+\RequirePackage{anyfontsize}            % Để dùng nhiều cỡ chữ
 \RequirePackage{scrextend}
 \RequirePackage{geometry}
 \RequirePackage{graphicx}               % Thư viện chèn ảnh
@@ -24,6 +26,12 @@
 \RequirePackage{datetime}               % Để bóc tách ngày tháng
 %----- CONFIG PACKAGE -----
 \KOMAoptions{fontsize=13pt}             % Đúng cách để đặt kích thước chữ với scrextend
+\lstset{
+    basicstyle=\ttfamily\fontsize{10}{12}\selectfont,
+    frame=single,
+    breaklines=true,
+    columns=fullflexible
+}
 \setlist[itemize]{leftmargin=4em, labelsep=0.5em} % 4em = 2tab
 \geometry{paperheight=29.7cm, paperwidth=21cm, right=2.5cm, left=3.5cm, top=2cm, bottom=2cm}
 % \geometry{showframe}                  % Show margin
