@@ -49,7 +49,7 @@ GraduationThesisTemplate/
 
 -   **Cách 1: Dùng VS Code (Khuyên dùng)**
     1.  Mở file `main.tex`.
-    2.  Nhấn tổ hợp phím `Ctrl+Alt+B` hoặc click vào biểu tượng ✅ **Build LaTeX project** ở thanh công cụ bên trái để biên dịch.
+    2.  Nhấn tổ hợp phím `Ctrl+Alt+B` hoặc click vào biểu tượng ✓ **Build LaTeX project** ở góc cuối bên trái để biên dịch.
     3.  Nhấn `Ctrl+Alt+V` để xem file PDF kết quả ngay trong VS Code.
 
 -   **Cách 2: Dùng Dòng Lệnh**
