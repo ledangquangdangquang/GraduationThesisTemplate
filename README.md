@@ -98,7 +98,7 @@ File `thesis-config.cls` đã định nghĩa sẵn một số lệnh để giúp
     Trong đó, `tỷ lệ rộng` là số từ 0 đến 1, tương ứng với chiều rộng của ảnh so với chiều rộng của trang.
 
 -   **Sử dụng bìa báo cáo nhóm**:
-    Nếu làm báo cáo nhóm, hãy thay thế lệnh `\maketitle` trong `main.tex` bằng lệnh `\groupTitle`.
+    Nếu làm báo cáo nhóm, hãy thay thế lệnh `\maketitle` trong `MoDau/Bia.tex` bằng lệnh `\groupTitle`.
     ```latex
     % \maketitle % Bìa cho đồ án cá nhân
     \groupTitle % Bìa cho báo cáo nhóm
