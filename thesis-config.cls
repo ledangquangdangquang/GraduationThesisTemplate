@@ -26,16 +26,19 @@
 \RequirePackage{datetime}               % Để bóc tách ngày tháng
 %----- CONFIG PACKAGE -----
 \KOMAoptions{fontsize=13pt}             % Đúng cách để đặt kích thước chữ với scrextend
+\geometry{paperheight=29.7cm, paperwidth=21cm, right=2.5cm, left=3.5cm, top=2cm, bottom=2cm}
+\geometry{paperheight=29.7cm, paperwidth=21cm, right=2.5cm, left=3.5cm, top=2cm, bottom=2cm}
+% \geometry{showframe}                  % Show margin
+\AtBeginDocument{\usetikzlibrary{calc}} % Nạp thư viện calc của TikZ
 \lstset{
     basicstyle=\ttfamily\fontsize{10}{12}\selectfont,
     frame=single,
     breaklines=true,
     columns=fullflexible
 }
-\setlist[itemize]{leftmargin=4em, labelsep=0.5em} % 4em = 2tab
-\geometry{paperheight=29.7cm, paperwidth=21cm, right=2.5cm, left=3.5cm, top=2cm, bottom=2cm}
-% \geometry{showframe}                  % Show margin
-\AtBeginDocument{\usetikzlibrary{calc}} % Nạp thư viện calc của TikZ
+\setlist[itemize,1]{leftmargin=4em, labelsep=0.5em, noitemsep, topsep=0pt}
+\setlist[itemize,2]{leftmargin=2em, labelsep=0.5em, noitemsep, topsep=0pt, label=$\circ$}
+\setlist[itemize,3]{leftmargin=2em, labelsep=0.5em, noitemsep, topsep=0pt, label=$\ast$}
 %----- DEFINITIONS -----
 \newtheorem{theorem}{Định lý}[section]
 \newtheorem{defn}[theorem]{Định nghĩa}
