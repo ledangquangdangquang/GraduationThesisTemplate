@@ -55,4 +55,29 @@
 \end{figure}
 
 Hình \ref{hinh4.1} đây là ví dụ về cách mạch điện. Để vẽ được mạch điện theo kiểu vector như trên thì nên vẽ trên web \href{https://circuit2tikz.tf.fau.de/designer/}{circuit2tikz}. Và cách chèn tài liệu tham khảo \cite{bracewell1989fourier}
+\subsection{Itemize customize}
+\begin{itemize}
+    \item Xét hệ thống V2I với một trạm hạ tầng và một phương tiện di chuyển.
+    \item Môi trường truyền được mô hình hóa với số lượng đường truyền hữu hạn (multipath hữu hạn).
+    \item Tập trung vào các tham số chính của kênh:
+    \begin{itemize}
+        \item Độ trễ (delay)
+        \item Góc đến (AoA)
+        \item Doppler
+    \end{itemize}
+    \item Giả thiết:
+    \begin{itemize}
+        \item Tín hiệu phát đã biết tại phía thu
+        \item Nhiễu là nhiễu Gaussian trắng (AWGN)
+    \end{itemize}
+    \item Thuật toán được đánh giá thông qua mô phỏng, chưa triển khai trên hệ thống thực tế.
+    \item Không xét các yếu tố:
+    \begin{itemize}
+        \item Fading nhanh theo thời gian dài
+        \begin{itemize}
+			\item Nhiều người dùng (multi-user)
+			\item Hệ thống MIMO phức tạp
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
 \cleardoublepage
