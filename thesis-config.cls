@@ -20,10 +20,16 @@
 \RequirePackage{tabularx}               % Gói để căn vị trí cho bảng
 \RequirePackage{caption}                % Gói để xóa dấu hai chấm
 \RequirePackage{amsmath}                % Gói hỗ trợ xóa dấu ngoặc mặc định của phương trình (gói cho toán học)
+\RequirePackage{amssymb}                % Gói hỗ trợ xóa dấu ngoặc mặc định của phương trình (gói cho toán học)
 \RequirePackage{lipsum}                 % Gói tạo chữ linh tinh
-\RequirePackage[unicode]{hyperref}      % Để bấm mục lục
+\RequirePackage[unicode,hidelinks]{hyperref}      % Link có thể bấm nhưng không hiện màu/khung
+% \RequirePackage[unicode]{hyperref}      % Link có thể bấm hiện màu/khung
 \RequirePackage{enumitem}               % Để customize đề mục tự đếm
 \RequirePackage{datetime}               % Để bóc tách ngày tháng
+\RequirePackage{booktabs}               
+\RequirePackage{multirow}               
+\RequirePackage{algorithm}
+\RequirePackage{algpseudocode}
 %----- CONFIG PACKAGE -----
 \KOMAoptions{fontsize=13pt}             % Đúng cách để đặt kích thước chữ với scrextend
 \geometry{paperheight=29.7cm, paperwidth=21cm, right=2.5cm, left=3.5cm, top=2cm, bottom=2cm}
@@ -170,6 +176,7 @@
 \renewcommand{\figurename}{\textit{\fontsize{12pt}{0}\selectfont Hình}} % Đổi tiêu đề và căn giữa
 \renewcommand{\thefigure}{\textit{\fontsize{12pt}{0}\selectfont \thesection.\arabic{figure}}} 
 \captionsetup[figure]{labelsep = space}
+\floatname{algorithm}{Thuật toán}
 %--- XỬ LÝ TÀI LIỆU THAM KHẢO ---
 \renewcommand{\refname}{\centering TÀI LIỆU THAM KHẢO}
 %--- XỬ LÝ ĐỀ MỤC ---
