@@ -11,6 +11,11 @@
 - **Lệnh tùy chỉnh tiện lợi**: Cung cấp các lệnh ngắn gọn để tạo chương, chèn hình ảnh, giúp nội dung nhất quán.
 - **Tự động hóa**: Chương trình viết bằng Rust (`AutoGenNextChapter.exe`, chạy trên Windows) giúp tự động tạo file chương mới và cập nhật vào file `main.tex`.
 - **Hỗ trợ bìa linh hoạt**: Cung cấp mẫu bìa cho cả đồ án cá nhân và báo cáo nhóm.
+- **Phiếu in sẵn**: Phiếu nhiệm vụ và hai phiếu đánh giá (cán bộ hướng dẫn, cán bộ phản biện) theo mẫu của Trường Điện – Điện tử.
+- **In hai mặt**: Lề đóng gáy luôn nằm đúng phía, mỗi phần bắt đầu ở trang lẻ.
+- **Đánh số tự động**: Hình, bảng, phương trình, định lý được đánh số theo chương và tự quay về 1 ở chương mới.
+- **Mã nguồn có dấu**: Khối `lstlisting` nhận tiếng Việt có dấu.
+- **Tài liệu hướng dẫn đi kèm**: `main.pdf` giải thích từng tính năng kèm ví dụ ngay trên trang.
 - **Cấu trúc rõ ràng**: Dự án được chia thành các thư mục riêng cho phần mở đầu, nội dung, và kết luận, giúp dễ dàng quản lý.
 
 ## Cấu Trúc Dự Án
@@ -24,7 +29,7 @@ GraduationThesisTemplate/
 ├── main.tex                # Tệp LaTeX chính để biên dịch
 ├── AutoGenNextChapter.exe  # Chương trình (Rust, Windows) tự động tạo chương mới
 ├── thesis-config.cls       # Tệp định dạng và chứa các lệnh tùy chỉnh
-├── main.pdf                # Tệp PDF mẫu đã biên dịch
+├── main.pdf                # Tệp PDF mẫu đã biên dịch, kiêm tài liệu hướng dẫn
 └── README.md               # Tệp hướng dẫn sử dụng
 ```
 
@@ -60,9 +65,9 @@ GraduationThesisTemplate/
 
 ### 3. Sử Dụng Trên Overleaf
 
-1.  Nén toàn bộ thư mục dự án thành một file `.zip`.
+1.  Tải file `GraduationThesisTemplate.zip` ở trang [Releases](https://github.com/ledangquangdangquang/GraduationThesisTemplate/releases/latest) (hoặc tự nén toàn bộ thư mục dự án thành một file `.zip`).
 2.  Đăng nhập vào [Overleaf](https://www.overleaf.com/), chọn **New Project** -> **Upload Project**.
-3.  Tải file `.zip` vừa tạo lên.
+3.  Tải file `.zip` lên.
 
 ## Hướng Dẫn Sử Dụng
 
@@ -87,6 +92,7 @@ File `thesis-config.cls` đã định nghĩa sẵn một số lệnh để giúp
     \chaptercustom{<số thứ tự>}{<Tên chương>}
     % Ví dụ: \chaptercustom{1}{TỔNG QUAN VỀ ĐỀ TÀI}
     ```
+    Lệnh này tự đưa chương vào mục lục và đặt lại số mục, hình, bảng, phương trình, định lý về 1. Không cần viết thêm `\setcounter{section}{...}`.
 
 -   **Chèn hình ảnh**:
     ```latex
@@ -97,10 +103,17 @@ File `thesis-config.cls` đã định nghĩa sẵn một số lệnh để giúp
     ```
     Trong đó, `tỷ lệ rộng` là số từ 0 đến 1, tương ứng với chiều rộng của ảnh so với chiều rộng của trang.
 
--   **Sử dụng bìa báo cáo nhóm**:
-    Nếu làm báo cáo nhóm, hãy thay thế lệnh `\maketitle` trong `MoDau/Bia.tex` bằng lệnh `\groupTitle`.
+-   **Chú thích hình và bảng**:
+    Kiểu chữ của chú thích (nghiêng, cỡ 12pt) đã được định dạng sẵn, chỉ cần viết:
     ```latex
-    % \maketitle % Bìa cho đồ án cá nhân
+    \caption{Kết quả thí nghiệm}
+    ```
+
+-   **Sử dụng bìa báo cáo nhóm**:
+    File `MoDau/Bia.tex` gọi `\maketitle` hai lần (bìa chính và bìa lót). Nếu làm báo cáo nhóm, hãy thay cả hai dòng đó bằng một dòng `\groupTitle`.
+    ```latex
+    % \maketitle % Bìa chính cho đồ án cá nhân
+    % \maketitle % Bìa lót cho đồ án cá nhân
     \groupTitle % Bìa cho báo cáo nhóm
     ```
     *Lưu ý: Khai báo thành viên nhóm và mã lớp trong `main.tex`:*
@@ -109,7 +122,19 @@ File `thesis-config.cls` đã định nghĩa sẵn một số lệnh để giúp
     \classcode{123456}
     ```
 
-### 3. Tự Động Tạo Chương Mới
+### 3. Phiếu Nhiệm Vụ, Phiếu Đánh Giá Và In Một Mặt
+
+-   **Bỏ trang không cần**: Phiếu nhiệm vụ và phiếu đánh giá được in trống để giảng viên điền tay. Nếu không cần trang nào, thêm dấu `%` trước dòng `\input` tương ứng trong `main.tex`:
+    ```latex
+    % \input{MoDau/PhieuDanhGiaCanBoPhanBien}
+    ```
+
+-   **In một mặt**: Mẫu mặc định in hai mặt nên LaTeX tự chèn trang trắng để mỗi phần bắt đầu ở trang lẻ. Nếu in một mặt, sửa dòng 2 của `thesis-config.cls` thành:
+    ```latex
+    \LoadClass{article}
+    ```
+
+### 4. Tự Động Tạo Chương Mới
 
 Để tiết kiệm thời gian, bạn có thể chạy chương trình `AutoGenNextChapter.exe` (viết bằng Rust, chỉ chạy trên Windows) để tự động:
 1.  Tạo một file `.tex` mới trong thư mục `NoiDung/` với cấu trúc sẵn có.
@@ -126,4 +151,4 @@ Tệp `main.pdf` là phiên bản mẫu đã được biên dịch, đồng th�
 
 ## Liên Hệ
 
-Nếu có bất kỳ câu hỏi hoặc góp ý nào, vui lòng tạo một [Issue](https://github.com/Quanghusst/GraduationThesisTemplate/issues).
+Nếu có bất kỳ câu hỏi hoặc góp ý nào, vui lòng tạo một [Issue](https://github.com/ledangquangdangquang/GraduationThesisTemplate/issues).
