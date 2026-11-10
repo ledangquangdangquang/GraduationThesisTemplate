@@ -37,6 +37,8 @@ GraduationThesisTemplate/
 
 ### 1. Cài Đặt Môi Trường (Trên Máy Tính Cá Nhân)
 
+#### Windows
+
 **Phần mềm yêu cầu:**
 
 1.  **[Visual Studio Code](https://code.visualstudio.com/)**: Trình soạn thảo code.
@@ -49,6 +51,26 @@ GraduationThesisTemplate/
 1.  Cài đặt lần lượt các phần mềm trên.
 2.  Mở **MiKTeX Console**, vào mục **Updates** và cập nhật tất cả các gói lên phiên bản mới nhất.
 3.  Mở dự án bằng VS Code. VS Code sẽ tự động nhận diện đây là một dự án LaTeX thông qua tiện ích LaTeX Workshop.
+
+#### Ubuntu / Debian
+
+Cài `latexmk` và các gói TeX Live mà mẫu cần bằng một lệnh:
+
+```bash
+sudo apt install latexmk texlive-latex-extra texlive-lang-other texlive-science texlive-pictures texlive-publishers texlive-fonts-recommended
+```
+
+| Gói | Dùng cho |
+| --- | --- |
+| `latexmk` | Công cụ biên dịch |
+| `texlive-latex-extra` | titlesec, stackengine, enumitem, multirow, lipsum, anyfontsize... |
+| `texlive-lang-other` | vntex: font và bảng mã tiếng Việt (T5) |
+| `texlive-science` | siunitx, algorithm, algpseudocode |
+| `texlive-pictures` | tikz, circuitikz |
+| `texlive-publishers` | Kiểu trích dẫn IEEEtran |
+| `texlive-fonts-recommended` | Font Times và Helvetica |
+
+Sau đó biên dịch bằng dòng lệnh (xem mục 2), hoặc dùng VS Code với tiện ích LaTeX Workshop như trên Windows. Không cần cài Perl riêng vì Ubuntu đã có sẵn.
 
 ### 2. Biên Dịch Dự Án
 
