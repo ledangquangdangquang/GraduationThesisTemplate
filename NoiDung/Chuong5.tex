@@ -1,4 +1,35 @@
-\chaptercustom{5}{CHỦ ĐỀ CỦA CHƯƠNG 5}
-\setcounter{section}{5}
+\chaptercustom{5}{TRÍCH DẪN, THAM CHIẾU VÀ LIÊN KẾT}
+Chương này hướng dẫn trích dẫn tài liệu tham khảo, tham chiếu chéo tới hình, bảng, phương trình, tạo liên kết, và liệt kê các lỗi biên dịch thường gặp.
+
+\subsection{Trích dẫn tài liệu tham khảo}
+\label{sec:trichdan}
+Tài liệu tham khảo được khai báo trong tệp \path{KetThuc/TaiLieuThamKhao.bib}. Mỗi tài liệu là một mục BibTeX, có thể lấy từ Google Scholar (nút \textbf{Trích dẫn} $\rightarrow$ \textbf{BibTeX}):
+\begin{verbatim}
+@book{howell2016principles,
+  title={Principles of Fourier analysis},
+  author={Howell, Kenneth B},
+  year={2016},
+  publisher={CRC Press}
+}
+\end{verbatim}
+Trong bài, trích dẫn bằng \verb|\cite{khóa}|, ví dụ \verb|\cite{bracewell1989fourier}| cho ra \cite{bracewell1989fourier}. Trích dẫn nhiều tài liệu cùng lúc thì liệt kê các khóa, cách nhau bằng dấu phẩy, ví dụ \cite{stein2011fourier, howell2016principles}. Kiểu IEEE tự đánh số theo thứ tự trích dẫn, và chỉ những tài liệu đã được \verb|\cite| mới xuất hiện trong danh mục tài liệu tham khảo.
+
+\subsection{Tham chiếu chéo}
+Đặt nhãn bằng \verb|\label{tên}| ngay sau \verb|\caption| (với hình, bảng, thuật toán), bên trong phương trình, định lý, hoặc ngay sau đề mục; rồi dùng \verb|\ref{tên}| để in số. Ví dụ: Hình \ref{hinh:mach}, Bảng \ref{bang:thinghiem}, PT \ref{pt:dft}, Định lý \ref{dl:laymau}, Thuật toán \ref{tt:dft}, Mục \ref{sec:trichdan}. Số luôn đúng khi thêm hoặc bớt nội dung. Nên đặt tên nhãn có tiền tố theo loại (\texttt{hinh:}, \texttt{bang:}, \texttt{pt:}) để dễ nhớ.
+
+\subsection{Liên kết}
+Mục lục, danh mục, trích dẫn và tham chiếu đều bấm được trong tệp PDF. Liên kết ra ngoài viết bằng \verb|\href{địa chỉ}{chữ hiển thị}|, ví dụ \href{https://hust.edu.vn}{trang chủ HUST}. Mặc định liên kết không có màu để bản in gọn; muốn hiện khung màu khi soạn, trong \texttt{thesis-config.cls} đổi hai dòng sau thành:
+\begin{verbatim}
+% \RequirePackage[unicode,hidelinks]{hyperref}
+\RequirePackage[unicode]{hyperref}
+\end{verbatim}
+
+\subsection{Lỗi thường gặp}
+\begin{itemize}
+    \item Số hiện thành \texttt{??}: biên dịch lại, hoặc kiểm tra tên nhãn trong \verb|\ref| có khớp với \verb|\label| không.
+    \item \texttt{Undefined control sequence}: gõ sai tên lệnh, hoặc lệnh cần gói chưa được nạp.
+    \item \texttt{File ... not found}: đường dẫn ảnh tính từ thư mục chứa \texttt{main.tex}; Overleaf phân biệt chữ hoa và chữ thường trong tên tệp.
+    \item Các ký tự \verb|% & _ # $| có nghĩa đặc biệt trong LaTeX; muốn in ra thì viết \verb|\% \& \_ \# \$|.
+\end{itemize}
 
 \cleardoublepage

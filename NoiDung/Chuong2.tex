@@ -1,28 +1,94 @@
-\chaptercustom{2}{SỬ DỤNG CÁC BIỂU ĐỒ}  
-\setcounter{section}{2}
-Mỗi chương sẽ bắt đầu bằng đoạn giới thiệu các phần chính được trình bày trong chương đó, dài khoảng 5 - 10 dòng và kết thúc bằng 1 đoạn tóm tắt các kết luận chính của chương. Chú ý phân bổ chiều dài của mỗi chương cho cân đối và hợp lý 
-\subsection{Một số lưu ý khi trình bày đồ án}
-Sau đây là 1 vài chú ý khi làm đồ án các bạn cần nhớ nhé
-\subsubsection{Nộp đồ án}
-Sinh viên (hoặc nhóm sinh viên tối đa 3 thành viên làm chung 1 đề tài) phải nộp 2 quyển đồ án tốt nghiệp tại văn phòng bộ môn của giảng viên hướng dẫn trước ngày bảo vệ ít nhất 1 tuần. Một quyển đồ án cần có các đặc điểm sau:
+\chaptercustom{2}{CÀI ĐẶT VÀ CẤU TRÚC MẪU}
+Chương này giới thiệu cấu trúc thư mục của mẫu, cách biên dịch, cách khai báo thông tin đồ án và cách dùng các trang ở phần mở đầu. Phần cuối chương hướng dẫn tạo chương mới, dùng các cấp đề mục và chế độ in hai mặt.
+
+\subsection{Cấu trúc thư mục}
 \begin{itemize}
-    \item Được \textbf{in 2 mặt} nhằm tiết kiệm không gian lưu trữ.
-    \item Đóng bìa mềm, bên ngoài là bóng kính. 
-    \item Số trang 50 - 150 trang, không kể phần phục lục
-    \item Phải có chữ ký của sinh viên sau lời cam đoan và của giảng viên hướng dẫn. 
+    \item \texttt{main.tex}: tệp chính, khai báo thông tin đồ án và thứ tự các phần.
+    \item \texttt{thesis-config.cls}: định dạng (lề, font, cỡ chữ, đề mục, bìa) và các lệnh tùy chỉnh. Thường không cần sửa.
+    \item \path{MoDau/}: bìa, phiếu nhiệm vụ, phiếu đánh giá, lời cảm ơn, mục lục và các danh mục.
+    \item \path{NoiDung/}: mỗi chương một tệp \texttt{ChuongN.tex}.
+    \item \path{KetThuc/}: kết luận, tài liệu tham khảo (tệp \texttt{.bib}) và phụ lục.
+    \item \path{Images/}: hình ảnh.
 \end{itemize}
-\subsubsection{Phụ lục}
-Phụ lục nếu có chứa thông tin có liên quan đến đồ án nhưng nếu để trong phần chính sẽ gây rườm rà. Thông thường các chi tiết để trong phần phụ lục là kết quả thô (chưa qua xử lý), mã nguồn phần mềm, thông số chi tiết của linh kiện hoặc hình thành minh họa thêm...
-\subsubsection{Tài liệu tham khảo}
-\paragraph{Cách liệt kê} \mbox{} % mbox để xuống dòng 
 
-Áp dụng cách liệt kê theo quy định của IEEE. Theo đó tài liệu tham khảo được đánh số thứ tự trong ngoặc vuông. Thứ tự liệt kê là thứ tự xuất hiện của tài liệu tham khảo được trích dẫn trong đồ án. Tài liệu tham khảo đã liệt kê bắt buộc phải được trích dẫn trong phần nội dung của đồ án. Tài liệu tham khảo cần có nguồn gốc rõ ràng và phải từ nguồn đáng tin cậy. Cần hạn chế trích dẫn tài liệu tham khảo từ các website, từ wikipedia.
-\paragraph{Các loại tài liệu tham khảo} \mbox{} % mbox để xuống dòng 
+\subsection{Biên dịch}
+Mẫu dùng trình biên dịch pdfLaTeX. Trên máy tính, mở \texttt{main.tex} trong VS Code (có tiện ích LaTeX Workshop) rồi nhấn \texttt{Ctrl+Alt+B}, hoặc chạy lệnh sau trong thư mục dự án:
+\begin{verbatim}
+latexmk -pdf main.tex
+\end{verbatim}
+Công cụ \texttt{latexmk} tự chạy BibTeX và biên dịch lại đủ số lần để mục lục, danh mục và các tham chiếu có số đúng. Trên Overleaf, nén cả thư mục thành tệp \texttt{.zip}, chọn \textbf{New Project} $\rightarrow$ \textbf{Upload Project} và tải tệp lên.
 
-Các nguồn tài liệu tham khảo chính là sách, bài báo trong các tạp chí, bài báo trong các hội nghị khoa học và các tài liệu tham khảo khác trên internet.
-\subsubsection{Đánh số phương trình}
-Phương trình được đánh số theo số của chương, như hình vẽ và bảng biểu.
-\subsubsection{Đánh số định nghĩa, định lý, hệ quả}
-Các định nghĩa định lý hệ quả sẽ được đánh số theo số của chương và được sử dụng chung 1 chỉ số. Ví dụ trong chương 3, các định nghĩa, định lý, hệ quả sẽ được đánh số theo thứ tự: Định lý 3.1 , Định nghĩa 3.2, Hệ quả 3.3, Định lý 3.4...
+\subsection{Khai báo thông tin đồ án}
+Thông tin đồ án được khai báo một lần ở đầu tệp \texttt{main.tex} và tự điền vào bìa. Bảng \ref{bang:thongtin} liệt kê các lệnh khai báo.
+\begin{table}[H]
+    \centering
+    \caption{Các lệnh khai báo thông tin trong main.tex}
+    \label{bang:thongtin}
+    \begin{tabularx}{\textwidth}{|l|X|}
+        \hline
+        \bfseries Lệnh & \bfseries Ý nghĩa \\ \hline
+        \texttt{\textbackslash title} & Tên đề tài \\ \hline
+        \texttt{\textbackslash author}, \texttt{\textbackslash authoremail} & Họ tên và email sinh viên (bìa cá nhân) \\ \hline
+        \texttt{\textbackslash specialization}, \texttt{\textbackslash major} & Ngành và chuyên ngành \\ \hline
+        \texttt{\textbackslash advisor} & Giảng viên hướng dẫn \\ \hline
+        \texttt{\textbackslash department}, \texttt{\textbackslash school} & Bộ môn và trường \\ \hline
+        \texttt{\textbackslash university}, \texttt{\textbackslash universitycity} & Tên đại học (đầu bìa) và nơi học (cuối bìa) \\ \hline
+        \texttt{\textbackslash degree} & Loại báo cáo, ví dụ ``Đồ án tốt nghiệp'' \\ \hline
+        \texttt{\textbackslash degreemonth}, \texttt{\textbackslash degreeyear} & Tháng, năm ở cuối bìa; mặc định lấy ngày biên dịch \\ \hline
+        \texttt{\textbackslash members}, \texttt{\textbackslash classcode} & Thành viên nhóm và mã lớp (chỉ dùng cho bìa nhóm) \\ \hline
+    \end{tabularx}
+\end{table}
+
+\subsection{Các trang ở phần mở đầu}
+\subsubsection{Bìa}
+Tệp \path{MoDau/Bia.tex} gọi \verb|\maketitle| hai lần để tạo bìa chính và bìa lót. Với báo cáo nhóm hoặc báo cáo môn học, thay cả hai dòng đó bằng một dòng \verb|\groupTitle|, rồi khai báo thành viên và mã lớp trong \texttt{main.tex}, mỗi thành viên cách nhau bằng \verb|\\|:
+\begin{verbatim}
+\members{Nguyễn Văn A 2022xxxx \\ Nguyễn Văn B 2022xxxx}
+\classcode{123456}
+\end{verbatim}
+
+\subsubsection{Phiếu nhiệm vụ và phiếu đánh giá}
+Phiếu nhiệm vụ và hai phiếu đánh giá (của cán bộ hướng dẫn và cán bộ phản biện) được in trống để giảng viên điền tay. Chúng nằm trong hai tệp:
+\begin{itemize}
+    \item \path{MoDau/NhiemVuDoAnTotNghiep.tex}
+    \item \path{MoDau/PhieuDanhGiaCanBoPhanBien.tex}
+\end{itemize} Tiêu chí trên phiếu đánh giá theo mẫu của Trường Điện -- Điện tử. Nếu không cần trang nào, thêm dấu \verb|%| trước dòng \verb|\input| tương ứng trong \texttt{main.tex}.
+
+\subsubsection{Lời cảm ơn và tóm tắt}
+Viết trong \path{MoDau/CamOnvaTomTat.tex}. Lời cảm ơn khoảng 100--150 từ, tóm tắt tối đa 300 chữ.
+
+\subsubsection{Mục lục và các danh mục}
+Mục lục, danh mục hình vẽ và danh mục bảng biểu được tạo tự động từ các đề mục và chú thích. Danh mục ký hiệu và chữ viết tắt thì viết tay trong \path{MoDau/DanhMucKyHieuVaChuVietTat.tex}, mỗi dòng một mục; cột mô tả tự xuống dòng khi quá dài:
+\begin{verbatim}
+AWGN & Additive White Gaussian Noise \\
+\end{verbatim}
+Đề mục không đánh số (\verb|\section*|, \verb|\subsection*|) không tự vào mục lục; muốn hiện thì thêm \verb|\addcontentsline| như trong \path{KetThuc/KetLuan.tex}.
+
+\subsection{Tạo chương mới}
+Mỗi chương là một tệp trong \path{NoiDung/}, bắt đầu bằng lệnh \verb|\chaptercustom| (số và tên chương) và kết thúc bằng \verb|\cleardoublepage|:
+\begin{verbatim}
+\chaptercustom{6}{TÊN CHƯƠNG MỚI}
+Nội dung chương...
+\cleardoublepage
+\end{verbatim}
+Sau đó thêm vào \texttt{main.tex}, ngay sau dòng của chương 5:
+\begin{verbatim}
+\input{./NoiDung/Chuong6}
+\end{verbatim} Lệnh \verb|\chaptercustom| tự đưa chương vào mục lục và đặt lại số mục, hình, bảng, phương trình, định lý về 1. Chương trình \texttt{AutoGenNextChapter.exe} (viết bằng Rust, chạy trên Windows) làm tự động cả hai bước trên.
+
+\subsection{Các cấp đề mục}
+\label{sec:demuc}
+Mẫu có bốn cấp đề mục: chương (\verb|\chaptercustom|), mục cấp 2 (\verb|\subsection|), mục cấp 3 (\verb|\subsubsection|) và mục cấp 4 (\verb|\paragraph|). Các mục được đánh số tự động theo chương, như Mục~\ref{sec:demuc} này.
+\subsubsection{Ví dụ đề mục cấp 3}
+Đề mục cấp 3 in đậm nghiêng.
+\paragraph{Ví dụ đề mục cấp 4} \mbox{}
+
+Đề mục cấp 4 in nghiêng. Lệnh \verb|\paragraph| không tự xuống dòng sau tiêu đề, nên cần thêm \verb|\mbox{}| và một dòng trống như ở đây.
+
+\subsection{In hai mặt}
+Mẫu ở chế độ in hai mặt: lề 3,5 cm luôn nằm ở phía gáy, mỗi phần bắt đầu ở trang lẻ và LaTeX tự chèn trang trắng (không in số trang) khi cần. Nếu in một mặt, sửa dòng 2 của \texttt{thesis-config.cls} thành:
+\begin{verbatim}
+\LoadClass{article}
+\end{verbatim}
 
 \cleardoublepage

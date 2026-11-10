@@ -1,10 +1,11 @@
-\chaptercustom{4}{THÍ NGHIỆM VÀ KẾT QUẢ}  
-\setcounter{section}{4}
-\subsection{Sao nó không đúng?}
-% \lipsum
-\begin{figure}[h]
+\chaptercustom{4}{MẠCH ĐIỆN, THUẬT TOÁN VÀ MÃ NGUỒN}
+Chương này hướng dẫn vẽ mạch điện, trình bày thuật toán bằng mã giả, chèn mã nguồn và tạo danh sách liệt kê.
+
+\subsection{Vẽ mạch điện}
+Mạch điện được vẽ dạng vector bằng gói \texttt{circuitikz}. Cách nhanh nhất là vẽ trên trang \href{https://circuit2tikz.tf.fau.de/designer/}{circuit2tikz} rồi chép mã sinh ra vào môi trường \texttt{circuitikz}. Hình \ref{hinh:mach} là mạch khuếch đại ba tầng; giá trị linh kiện ghi bằng \verb|\SI| như ở Mục~\ref{sec:donvi}.
+\begin{figure}[H]
     \centering
-	\begin{circuitikz}[american, scale=0.55, transform shape]
+	\begin{circuitikz}[american, scale=0.53, transform shape]
 		\node[ground] at (-61.71, -4) {};
 		\draw (-68.57, 6.17) to[european resistor, l2^= $R_1$ and \SI{56}{k\ohm}] (-68.57, 3.32);
 		\draw (-68.57, -1.14) to[european resistor, l2^=$R_2$and \SI{10}{k\ohm}] (-68.57, -4);
@@ -49,35 +50,64 @@
 		\draw (-52.57, -3.71) -- (-52.57, -4);
 		\draw (-57.71, -1.43) -- (-57.71, 1.71);
 		\draw (-70.86, 2.75) -| (-71.71, 2);
-	\end{circuitikz} 
-    \caption[Mạch của đề bài]{\textit{\fontsize{12pt}{0}\selectfont Mạch của đề bài}}
-    \label{hinh4.1}
+	\end{circuitikz}
+    \caption{Mạch khuếch đại ba tầng}
+    \label{hinh:mach}
 \end{figure}
 
-Hình \ref{hinh4.1} đây là ví dụ về cách mạch điện. Để vẽ được mạch điện theo kiểu vector như trên thì nên vẽ trên web \href{https://circuit2tikz.tf.fau.de/designer/}{circuit2tikz}. Và cách chèn tài liệu tham khảo \cite{bracewell1989fourier}
-\subsection{Itemize customize}
+\subsection{Trình bày thuật toán}
+Thuật toán viết bằng mã giả với gói \texttt{algorithm} (khung và chú thích) và \texttt{algpseudocode} (các lệnh \verb|\State|, \verb|\For|, \verb|\If|, \verb|\Return|, \dots). Thuật toán \ref{tt:dft} tính DFT trực tiếp theo PT \ref{pt:dft}, với độ phức tạp $O(N^2)$.
+\begin{algorithm}[H]
+    \caption{Tính DFT trực tiếp}
+    \label{tt:dft}
+    \begin{algorithmic}[1]
+        \Require Dãy $x[n]$, $n = 0, \dots, N-1$
+        \Ensure Dãy $X[k]$, $k = 0, \dots, N-1$
+        \For{$k = 0$ \textbf{to} $N-1$}
+            \State $X[k] \gets 0$
+            \For{$n = 0$ \textbf{to} $N-1$}
+                \State $X[k] \gets X[k] + x[n]\, e^{-j 2\pi k n / N}$
+            \EndFor
+        \EndFor
+        \State \Return $X$
+    \end{algorithmic}
+\end{algorithm}
+
+\subsection{Chèn mã nguồn}
+\label{sec:manguon}
+Mã nguồn dùng môi trường \texttt{lstlisting} (gói \texttt{listings}), có khung và font chữ đều cỡ 10pt. Tên ngôn ngữ trong tùy chọn \texttt{language} để tô đậm từ khóa:
+\begin{lstlisting}[language=Python]
+import numpy as np
+
+def dft(x):
+    # Tính DFT trực tiếp theo định nghĩa, độ phức tạp O(N^2)
+    N = len(x)
+    n = np.arange(N)
+    k = n.reshape((N, 1))
+    return np.exp(-2j * np.pi * k * n / N) @ x
+\end{lstlisting}
+Chú thích trong mã nguồn viết được tiếng Việt có dấu như trên. Tệp mã dài nên chèn thẳng bằng \verb|\lstinputlisting{tep.py}| và đặt ở phụ lục.
+
+\subsection{Danh sách liệt kê}
+Danh sách không đánh số dùng \texttt{itemize}. Mẫu định dạng sẵn ba cấp với ba kiểu dấu đầu dòng khác nhau:
 \begin{itemize}
-    \item Xét hệ thống V2I với một trạm hạ tầng và một phương tiện di chuyển.
-    \item Môi trường truyền được mô hình hóa với số lượng đường truyền hữu hạn (multipath hữu hạn).
-    \item Tập trung vào các tham số chính của kênh:
+    \item Mô hình kênh truyền gồm các tham số:
     \begin{itemize}
-        \item Độ trễ (delay)
-        \item Góc đến (AoA)
-        \item Doppler
-    \end{itemize}
-    \item Giả thiết:
-    \begin{itemize}
-        \item Tín hiệu phát đã biết tại phía thu
-        \item Nhiễu là nhiễu Gaussian trắng (AWGN)
-    \end{itemize}
-    \item Thuật toán được đánh giá thông qua mô phỏng, chưa triển khai trên hệ thống thực tế.
-    \item Không xét các yếu tố:
-    \begin{itemize}
-        \item Fading nhanh theo thời gian dài
+        \item Độ trễ (delay).
+        \item Góc đến (AoA).
+        \item Dịch tần Doppler, phụ thuộc vào:
         \begin{itemize}
-			\item Nhiều người dùng (multi-user)
-			\item Hệ thống MIMO phức tạp
+            \item vận tốc phương tiện;
+            \item tần số sóng mang.
         \end{itemize}
     \end{itemize}
+    \item Nhiễu là nhiễu Gaussian trắng cộng tính (AWGN).
 \end{itemize}
+Danh sách đánh số dùng \texttt{enumerate}; kiểu số đặt bằng tùy chọn \texttt{label} của gói \texttt{enumitem}, ví dụ \verb|\begin{enumerate}[label=\alph*)]|:
+\begin{enumerate}[label=\alph*)]
+    \item Đo điện áp ra.
+    \item So sánh với giá trị tham chiếu.
+    \item Ghi kết quả vào Bảng \ref{bang:thinghiem}.
+\end{enumerate}
+
 \cleardoublepage

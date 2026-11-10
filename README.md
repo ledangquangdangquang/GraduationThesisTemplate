@@ -9,7 +9,7 @@
 
 - **Định dạng chuẩn HUST**: Cấu hình sẵn lề, font chữ, cỡ chữ, giãn dòng theo quy định.
 - **Lệnh tùy chỉnh tiện lợi**: Cung cấp các lệnh ngắn gọn để tạo chương, chèn hình ảnh, giúp nội dung nhất quán.
-- **Tự động hóa**: Script Python giúp tự động tạo file chương mới và cập nhật vào file `main.tex`.
+- **Tự động hóa**: Chương trình viết bằng Rust (`AutoGenNextChapter.exe`, chạy trên Windows) giúp tự động tạo file chương mới và cập nhật vào file `main.tex`.
 - **Hỗ trợ bìa linh hoạt**: Cung cấp mẫu bìa cho cả đồ án cá nhân và báo cáo nhóm.
 - **Cấu trúc rõ ràng**: Dự án được chia thành các thư mục riêng cho phần mở đầu, nội dung, và kết luận, giúp dễ dàng quản lý.
 
@@ -22,7 +22,7 @@ GraduationThesisTemplate/
 ├── KetThuc/                # Chương Kết luận và phụ lục
 ├── Images/                 # Thư mục chứa hình ảnh minh họa
 ├── main.tex                # Tệp LaTeX chính để biên dịch
-├── AutoGenNextChapter.exe  # Script tự động tạo chương mới
+├── AutoGenNextChapter.exe  # Chương trình (Rust, Windows) tự động tạo chương mới
 ├── thesis-config.cls       # Tệp định dạng và chứa các lệnh tùy chỉnh
 ├── main.pdf                # Tệp PDF mẫu đã biên dịch
 └── README.md               # Tệp hướng dẫn sử dụng
@@ -103,22 +103,26 @@ File `thesis-config.cls` đã định nghĩa sẵn một số lệnh để giúp
     % \maketitle % Bìa cho đồ án cá nhân
     \groupTitle % Bìa cho báo cáo nhóm
     ```
-    *Lưu ý: Bạn cần vào file `thesis-config.cls` để chỉnh sửa thông tin thành viên nhóm trong lệnh `\groupTitle`.*
+    *Lưu ý: Khai báo thành viên nhóm và mã lớp trong `main.tex`:*
+    ```latex
+    \members{Nguyễn Văn A 2022xxxx \\ Nguyễn Văn B 2022xxxx}
+    \classcode{123456}
+    ```
 
 ### 3. Tự Động Tạo Chương Mới
 
-Để tiết kiệm thời gian, bạn có thể chạy script `AutoGenNextChapter.exe` để tự động:
+Để tiết kiệm thời gian, bạn có thể chạy chương trình `AutoGenNextChapter.exe` (viết bằng Rust, chỉ chạy trên Windows) để tự động:
 1.  Tạo một file `.tex` mới trong thư mục `NoiDung/` với cấu trúc sẵn có.
 2.  Tự động thêm lệnh `\input{...}` cho chương mới vào file `main.tex`.
 
-Chạy script bằng lệnh (cmd hoặc powershell):
+Chạy chương trình bằng lệnh (cmd hoặc powershell):
 ```bash
 .\AutoGenNextChapter.exe
 ```
 
 ## Tài Liệu Mẫu
 
-Tệp `main.pdf` là phiên bản mẫu đã được biên dịch, cung cấp cái nhìn tổng quan về định dạng và cấu trúc của luận văn sau khi hoàn thiện.
+Tệp `main.pdf` là phiên bản mẫu đã được biên dịch, đồng thời là tài liệu hướng dẫn: Chương 1 tóm tắt quy định trình bày đồ án, Chương 2–5 giải thích từng tính năng của mẫu (khai báo thông tin, bìa, tạo chương, hình, bảng, phương trình, mạch điện, thuật toán, mã nguồn, trích dẫn) kèm ví dụ ngay trên trang.
 
 ## Liên Hệ
 

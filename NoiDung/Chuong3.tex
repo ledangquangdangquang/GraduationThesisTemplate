@@ -1,64 +1,93 @@
-\chaptercustom{3}{THUẬT TOÁN}  
-\setcounter{section}{3}
-Đây \cite{stein2011fourier} là phần sinh viên tự phát triển như xây dựng thuật toán, xây dựng chương trình, mô phỏng, tính toán, thiết kế, chạy thử kết quả... \cite{howell2016principles}
-\subsection{Cách chèn ảnh}
+\chaptercustom{3}{HÌNH VẼ, BẢNG BIỂU VÀ PHƯƠNG TRÌNH}
+Chương này hướng dẫn chèn hình vẽ, tạo bảng biểu, viết phương trình, ghi đơn vị đo và trình bày định nghĩa, định lý. Ví dụ trong chương lấy từ xử lý tín hiệu số \cite{stein2011fourier}.
+
+\subsection{Chèn hình vẽ}
+Cách nhanh nhất là dùng lệnh \verb|\figurecustom| với ba tham số: tỷ lệ rộng (số từ 0 đến 1 so với chiều rộng trang), đường dẫn ảnh và chú thích. Lệnh tự căn giữa, định dạng chú thích, đưa hình vào danh mục hình vẽ và đặt nhãn bằng chính đường dẫn ảnh:
+\begin{verbatim}
+\figurecustom{0.75}{Images/signal.pdf}{Phổ của tín hiệu}
+\end{verbatim}
+\figurecustom{0.75}{Images/signal.pdf}{Phổ của tín hiệu}
+Hình \ref{Images/signal.pdf} được tham chiếu bằng \verb|\ref{Images/signal.pdf}|. Nên dùng ảnh vector (PDF) để hình không bị vỡ khi phóng to. Với MATLAB phiên bản 2021b trở lên, xuất hình bằng lệnh:
+\begin{verbatim}
+exportgraphics(gcf, 'hinh.pdf', 'ContentType', 'vector')
+\end{verbatim}
+Nếu cần nhiều tùy chỉnh hơn, viết môi trường \texttt{figure} đầy đủ:
+\begin{verbatim}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.75\textwidth]{Images/signal.pdf}
-    \caption[Sơ đồ khối của hệ thống]{\textit{\fontsize{12pt}{0}\selectfont Sơ đồ khối của hệ thống}}
-    \label{hinh31}
+    \includegraphics[width=0.75\textwidth]{Images/a.png}
+    \caption[Chú thích ngắn]{Chú thích đầy đủ}
+    \label{hinh:a}
 \end{figure}
-Hình \ref{hinh31} là ví dụ về cách chèn ảnh. Nên export ảnh từ matlab theo câu lệnh: \textbf{exportgraphics(gcf, 'myfigure.pdf', 'ContentType', 'vector');} (chỉ matlab phiên bản 2021b trở lên mới được) nhưng nó xịn như hình trên. Lưu ý chú thích của hình vẽ được đặt ngay dưới hình vẽ. Tất cả các hình vẽ phải được đề cập đến trong phần nội dung và phải được phân tích và bình luận giống mình đang làm thế này nhé hihi :)
+\end{verbatim}
+Tùy chọn \texttt{[H]} giữ hình đúng vị trí trong văn bản. Chú thích ngắn trong ngoặc vuông (có thể bỏ) là dòng hiện trong danh mục hình vẽ. Kiểu chữ của chú thích (nghiêng, cỡ 12pt) được định dạng sẵn, không cần tự thêm.
 
-\subsection{Cách tạo bảng}
+\subsection{Tạo bảng biểu}
+Bảng dùng môi trường \texttt{table} với chú thích đặt trước bảng. Bảng \ref{bang:thinghiem} dùng \texttt{tabularx} để bảng rộng đúng 75\% trang. Mẫu định nghĩa sẵn hai kiểu cột căn giữa: \texttt{s} (hẹp, 0,7 phần) và \texttt{a} (rộng, 1,3 phần). Tổng số phần phải bằng số cột, ở đây $0{,}7 + 1{,}3 + 1{,}3 + 0{,}7 = 4$.
 \begin{table}[H]
     \centering
-    \caption[Kết quả thí nghiệm]{\textit{\fontsize{12pt}{0}\selectfont Kết quả thí nghiệm}}
-    \begin{tabularx}{0.75\textwidth}{
-        |>{\centering\arraybackslash}s
-        |>{\centering\arraybackslash}a
-        |>{\centering\arraybackslash}a
-        |>{\centering\arraybackslash}s|
-        }
+    \caption{Kết quả thí nghiệm}
+    \label{bang:thinghiem}
+    \begin{tabularx}{0.75\textwidth}{|s|a|a|s|}
         \hline
-        \bfseries Lần thí nghiệm & \bfseries Điện áp đo được (mV) &\bfseries Điện áp tham chiếu (mV)& \bfseries Sai lệch (\%)\\\hline
-        1&&&\\\hline
-        2&&&\\\hline
-        3&&&\\\hline
+        \bfseries Lần thí nghiệm & \bfseries Điện áp đo được (mV) & \bfseries Điện áp tham chiếu (mV) & \bfseries Sai lệch (\%) \\ \hline
+        1 & 99,2 & 100 & 0,8 \\ \hline
+        2 & 100,5 & 100 & 0,5 \\ \hline
+        3 & 98,9 & 100 & 1,1 \\ \hline
     \end{tabularx}
-    \label{bang31}
 \end{table}
-Bảng \ref{bang31} là ví dụ về cách tạo bảng. Lưu ý chú thích của bảng được đặt ở trước bảng. Tất cả các bảng biểu phải được đề cập đến trong phần nội dung và phải phân tích và bình luận giống như mình đang làm nhé hehe :)
+Ô gộp nhiều dòng dùng \verb|\multirow| (gói \texttt{multirow}). Bảng \ref{bang:linhkien} gộp hai dòng của cột đầu và dùng đường kẻ ngang của gói \texttt{booktabs} (\verb|\toprule|, \verb|\midrule|, \verb|\bottomrule|) thay cho \verb|\hline|.
+\begin{table}[H]
+    \centering
+    \caption{Thông số linh kiện}
+    \label{bang:linhkien}
+    \begin{tabular}{llr}
+        \toprule
+        \bfseries Loại & \bfseries Ký hiệu & \bfseries Giá trị \\
+        \midrule
+        \multirow{2}{*}{Điện trở} & $R_1$ & \SI{56}{\kilo\ohm} \\
+                                  & $R_2$ & \SI{10}{\kilo\ohm} \\
+        Tụ điện & $C_1$ & \SI{1}{\micro\farad} \\
+        \bottomrule
+    \end{tabular}
+\end{table}
 
-\subsection{Cách viết phương trình}
+\subsection{Viết phương trình}
+Phương trình có đánh số dùng môi trường \texttt{equation}, nhãn đặt bên trong bằng \verb|\label|. Phương trình \ref{pt:dft} là biến đổi Fourier rời rạc (DFT) \cite{howell2016principles}:
 \begin{equation}
-    \label{pt31}
-    F(x) = \int^a_b \frac{1}{3}x^3
+    \label{pt:dft}
+    X[k] = \sum_{n=0}^{N-1} x[n]\, e^{-j 2\pi k n / N}, \quad k = 0, 1, \dots, N-1
 \end{equation}
-Phương trình \ref{pt31} là ví dụ về phương trình tích phân.
+Nhiều dòng thẳng hàng theo dấu \verb|&| dùng môi trường \texttt{align}, mỗi dòng được đánh số riêng. Phương trình \ref{pt:nangluong} và \ref{pt:parseval} là định lý Parseval về năng lượng tín hiệu:
+\begin{align}
+    E &= \int_{-\infty}^{\infty} |x(t)|^2 \, dt \label{pt:nangluong} \\
+      &= \int_{-\infty}^{\infty} |X(f)|^2 \, df \label{pt:parseval}
+\end{align}
+Phương trình không cần đánh số dùng \texttt{equation*}, còn công thức nằm trong dòng chữ thì viết giữa hai dấu \verb|$|, ví dụ $f_s = 1/T$. Số phương trình có dạng ``PT chương.thứ tự'' và tự đặt lại về 1 ở mỗi chương.
 
-Thử phương trình khác 
-\begin{equation}
-    \label{pt32}
-    x[t_n] = \frac{1}{\sqrt{n}} \sum_{k=0}^{N-1}[f_k]
-\end{equation}
-Phương trình \ref{pt32} là phương trình biến đổi Fourier
-\subsection{Cách viết định nghĩa, định lý, hệ quả, bổ đề...}
-Định lý lấy mẫu Nq-shannon là một định lý được sử dụng trong lĩnh vực lý thuyết thông tin đặc biệt là trong viễn thông và xử lý tín hiệu 
-\begin{theorem} % Định lý
-    \label{dlNq}
-    Một hàm số tín hiệu  $x(t_n)$ không chứa bất kỳ thành phần tần số nào lớn hơn hoặc bằng 1 giá trị $f_m$ có thể biểu diễn chính xác bằng tập các giá trị của nó với chu kỳ lấy mẫu $T = 1/(2f_m)$.
+\subsection{Ghi đơn vị đo}
+\label{sec:donvi}
+Gói \texttt{siunitx} viết số kèm đơn vị đúng quy chuẩn: \verb|\SI{4.7}{\kilo\ohm}| cho ra \SI{4.7}{\kilo\ohm}, \verb|\SI{100}{\milli\volt}| cho ra \SI{100}{\milli\volt}, \verb|\SI{1}{\kilo\hertz}| cho ra \SI{1}{\kilo\hertz}. Muốn dùng dấu phẩy thập phân, thêm dòng sau vào \texttt{main.tex}, trước \verb|\begin{document}|:
+\begin{verbatim}
+\sisetup{output-decimal-marker={,}}
+\end{verbatim}
+
+\subsection{Định nghĩa, định lý, hệ quả, bổ đề}
+Bốn môi trường \texttt{defn}, \texttt{theorem}, \texttt{corollary}, \texttt{lemma} dùng chung một dãy số theo chương.
+\begin{defn}
+    \label{dn:fs}
+    Tần số lấy mẫu $f_s = 1/T$ là số mẫu lấy được trong một giây, với $T$ là chu kỳ lấy mẫu.
+\end{defn}
+\begin{theorem}[Nyquist--Shannon]
+    \label{dl:laymau}
+    Một tín hiệu $x(t)$ không chứa thành phần tần số nào từ $f_m$ trở lên được khôi phục chính xác từ các mẫu của nó nếu chu kỳ lấy mẫu $T \le 1/(2 f_m)$.
 \end{theorem}
-Định lý \ref{dlNq} thường được gọi đơn giản là định lý lấy mẫu 
 \begin{corollary}
-    Một người có thể làm được thì sẽ nghĩ mình làm đư
+    Tần số lấy mẫu tối thiểu để khôi phục tín hiệu là $f_s = 2 f_m$.
 \end{corollary}
 \begin{lemma}
-    Một người có thể làm được thì sẽ nghĩ mình làm đư
+    Với $k$ nguyên, $\sum_{n=0}^{N-1} e^{-j 2\pi k n / N}$ bằng $N$ nếu $k$ chia hết cho $N$ và bằng 0 trong các trường hợp còn lại.
 \end{lemma}
-\begin{defn}
-    \label{defn}
-    Một người có thể làm được thì sẽ nghĩ mình làm đư
-\end{defn}
-Định nghĩa \ref{defn} được nhắc tới như là tiếng gọi hoang rã từ nơi không người
+Định lý \ref{dl:laymau} dùng tần số lấy mẫu ở Định nghĩa \ref{dn:fs}. Tên riêng của định lý được ghi trong ngoặc vuông: \verb|\begin{theorem}[Nyquist--Shannon]|.
+
 \cleardoublepage
