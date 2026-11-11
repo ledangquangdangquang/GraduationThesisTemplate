@@ -65,11 +65,11 @@ AWGN & Additive White Gaussian Noise \\
 Đề mục không đánh số (\verb|\section*|, \verb|\subsection*|) không tự vào mục lục; muốn hiện thì thêm \verb|\addcontentsline| như trong \path{KetThuc/KetLuan.tex}.
 
 \subsection{Tạo chương mới}
-Mỗi chương là một tệp trong \path{NoiDung/}, bắt đầu bằng lệnh \verb|\chaptercustom| (số và tên chương) và kết thúc bằng \verb|\cleardoublepage|:
+Mỗi chương là một tệp trong \path{NoiDung/}, bắt đầu bằng lệnh \verb|\chaptercustom| (số và tên chương) và kết thúc bằng \verb|\clearpage| để chương sau sang trang mới:
 \begin{verbatim}
 \chaptercustom{6}{TÊN CHƯƠNG MỚI}
 Nội dung chương...
-\cleardoublepage
+\clearpage
 \end{verbatim}
 Sau đó thêm vào \texttt{main.tex}, ngay sau dòng của chương 5:
 \begin{verbatim}
@@ -86,9 +86,17 @@ Mẫu có bốn cấp đề mục: chương (\verb|\chaptercustom|), mục cấp
 Đề mục cấp 4 in nghiêng. Lệnh \verb|\paragraph| không tự xuống dòng sau tiêu đề, nên cần thêm \verb|\mbox{}| và một dòng trống như ở đây.
 
 \subsection{In hai mặt}
-Mẫu ở chế độ in hai mặt: lề 3,5 cm luôn nằm ở phía gáy, mỗi phần bắt đầu ở trang lẻ và LaTeX tự chèn trang trắng (không in số trang) khi cần. Nếu in một mặt, sửa dòng 2 của \texttt{thesis-config.cls} thành:
+Mẫu ở chế độ in hai mặt: lề 3,5 cm luôn nằm ở phía gáy, kể cả sau khi số trang được đánh lại từ đầu. Mặc định mẫu không tự chèn trang trắng: các trang nối tiếp nhau. Chỗ nào bạn muốn bắt đầu ở mặt trước của tờ giấy (ví dụ một chương), thêm \verb|\cleardoublepage| vào ngay trước chỗ đó; LaTeX sẽ chèn một trang trắng không in số trang nếu cần.
+
+Nếu muốn mỗi trang ở phần mở đầu (bìa, phiếu, lời cảm ơn, mục lục) và Chương 1 tự bắt đầu ở mặt trước của tờ giấy, thêm tùy chọn \texttt{blank} ở dòng đầu của \texttt{main.tex}:
+\begin{verbatim}
+\documentclass[blank]{thesis-config}
+\end{verbatim}
+Khi đánh số lại trang, dùng \verb|\thesispagenumbering| như trong \texttt{main.tex} thay cho \verb|\pagenumbering|, để lề gáy vẫn nằm đúng bên.
+
+Nếu in một mặt, sửa dòng \verb|\LoadClass| của \texttt{thesis-config.cls} thành:
 \begin{verbatim}
 \LoadClass{article}
 \end{verbatim}
 
-\cleardoublepage
+\clearpage

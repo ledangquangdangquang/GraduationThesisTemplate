@@ -1,4 +1,9 @@
 \NeedsTeXFormat{LaTeX2e}\ProvidesClass{thesis-config}[2024/11/26 Custom LaTeX Class]
+% Mặc định mẫu không tự chèn trang trắng. Tùy chọn blank: \documentclass[blank]{thesis-config}
+% thì mỗi trang ở phần mở đầu và chỗ đánh số lại trang đều bắt đầu ở trang lẻ (mặt trước tờ giấy)
+\newif\if@autoblank \@autoblankfalse
+\DeclareOption{blank}{\@autoblanktrue}
+\ProcessOptions\relax
 \LoadClass[twoside]{article}            % Kế thừa lớp "article", in 2 mặt: lề trái/phải đổi theo trang chẵn/lẻ
 %----- LOAD PACKAGE -----
 \RequirePackage[utf8]{inputenc}         % UTF-8 cho input
@@ -32,8 +37,24 @@
 %----- CONFIG PACKAGE -----
 \KOMAoptions{fontsize=13pt}             % Đúng cách để đặt kích thước chữ với scrextend
 \geometry{paperheight=29.7cm, paperwidth=21cm, right=2.5cm, left=3.5cm, top=2cm, bottom=2cm}
-% Trang trắng do \cleardoublepage chèn vào thì không in số trang
-\renewcommand{\cleardoublepage}{\clearpage\ifodd\c@page\else\hbox{}\thispagestyle{empty}\newpage\fi}
+% \if@pageflip: đúng khi trang số lẻ đang nằm ở mặt sau tờ giấy (xem \thesispagenumbering)
+\newif\if@pageflip \@pageflipfalse
+\newcommand{\@blankpage}{\hbox{}\thispagestyle{empty}\newpage} % Trang trắng, không in số trang
+% \cleardoublepage: sang mặt trước của tờ giấy kế tiếp, chèn một trang trắng nếu cần
+\renewcommand{\cleardoublepage}{\clearpage
+    \if@pageflip \ifodd\c@page\@blankpage\fi \else \ifodd\c@page\else\@blankpage\fi \fi}
+% Ngắt giữa các trang phần mở đầu: chỉ sang trang mới (mặc định) hoặc sang trang lẻ (tùy chọn blank)
+\newcommand{\thesisbreak}{\if@autoblank\cleardoublepage\else\clearpage\fi}
+% Đánh số lại trang từ 1 (dùng thay \pagenumbering). LaTeX đặt lề gáy theo số trang chẵn/lẻ, nên khi
+% trang số 1 rơi vào mặt sau tờ giấy thì đổi chỗ hai lề để lề gáy vẫn nằm đúng bên, không cần trang trắng
+\newcommand{\thesispagenumbering}[1]{\thesisbreak
+    \ifodd\c@page \if@pageflip\@tempswatrue\else\@tempswafalse\fi
+    \else \if@pageflip\@tempswafalse\else\@tempswatrue\fi \fi % \if@tempswa: trang này là mặt sau
+    \pagenumbering{#1}%
+    \if@tempswa \if@pageflip\else\@swapsidemargins\global\@pagefliptrue\fi
+    \else \if@pageflip\@swapsidemargins\global\@pageflipfalse\fi \fi}
+\newcommand{\@swapsidemargins}{\@tempdima=\oddsidemargin
+    \global\oddsidemargin=\evensidemargin \global\evensidemargin=\@tempdima}
 % \geometry{showframe}                  % Show margin
 \AtBeginDocument{\usetikzlibrary{calc}} % Nạp thư viện calc của TikZ
 \lstset{
@@ -105,7 +126,7 @@
         \vfill
         \textbf{\MakeUppercase\@universitycity \ \ \@degreemonth/\@degreeyear}
     \end{center}
-    \cleardoublepage
+    \thesisbreak
 }
 \renewcommand{\maketitle}{ % Define lại maketitle  (XỬ LÝ BÌA)
     \@coverhead

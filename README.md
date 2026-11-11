@@ -12,7 +12,7 @@
 - **Tự động hóa**: Chương trình viết bằng Rust (`AutoGenNextChapter.exe`, chạy trên Windows) giúp tự động tạo file chương mới và cập nhật vào file `main.tex`.
 - **Hỗ trợ bìa linh hoạt**: Cung cấp mẫu bìa cho cả đồ án cá nhân và báo cáo nhóm.
 - **Phiếu in sẵn**: Phiếu nhiệm vụ và hai phiếu đánh giá (cán bộ hướng dẫn, cán bộ phản biện) theo mẫu của Trường Điện – Điện tử.
-- **In hai mặt**: Lề đóng gáy luôn nằm đúng phía, mỗi phần bắt đầu ở trang lẻ.
+- **In hai mặt**: Lề đóng gáy luôn nằm đúng phía; mặc định không tự chèn trang trắng.
 - **Đánh số tự động**: Hình, bảng, phương trình, định lý được đánh số theo chương và tự quay về 1 ở chương mới.
 - **Mã nguồn có dấu**: Khối `lstlisting` nhận tiếng Việt có dấu.
 - **Tài liệu hướng dẫn đi kèm**: `main.pdf` giải thích từng tính năng kèm ví dụ ngay trên trang.
@@ -151,7 +151,13 @@ File `thesis-config.cls` đã định nghĩa sẵn một số lệnh để giúp
     % \input{MoDau/PhieuDanhGiaCanBoPhanBien}
     ```
 
--   **In một mặt**: Mẫu mặc định in hai mặt nên LaTeX tự chèn trang trắng để mỗi phần bắt đầu ở trang lẻ. Nếu in một mặt, sửa dòng 2 của `thesis-config.cls` thành:
+-   **Trang trắng khi in hai mặt**: Mặc định mẫu không tự chèn trang trắng, các trang nối tiếp nhau. Chỗ nào muốn bắt đầu ở mặt trước của tờ giấy thì thêm `\cleardoublepage` ngay trước chỗ đó. Nếu muốn mỗi trang ở phần mở đầu (bìa, phiếu, lời cảm ơn, mục lục) và Chương 1 tự bắt đầu ở mặt trước của tờ giấy, thêm tùy chọn `blank` ở dòng đầu của `main.tex`:
+    ```latex
+    \documentclass[blank]{thesis-config}
+    ```
+    Khi đánh số lại trang, dùng `\thesispagenumbering{...}` (như trong `main.tex`) thay cho `\pagenumbering{...}` để lề gáy vẫn nằm đúng bên.
+
+-   **In một mặt**: Mẫu mặc định in hai mặt (lề gáy đổi bên theo trang chẵn/lẻ). Nếu in một mặt, sửa dòng `\LoadClass` của `thesis-config.cls` thành:
     ```latex
     \LoadClass{article}
     ```
